@@ -57,10 +57,33 @@ create table USERS
 (
 	IDUser int not null identity(1,1),
 	Username nvarchar(150) not null,
-	Password varchar(50) not null,
+	Password varchar(64) not null,
 	Active int not null default(1),
 	constraint PKUsers primary key(IDUser),
 	constraint FKUsers_Accounts foreign key(Username) references ACCOUNTS(Email) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
-
+go
+create or alter proc DBInit
+as
+insert into OCCUPATIONS(Name)
+values('Director')
+insert into OCCUPATIONS(Name)
+values('Actor')
+insert into OCCUPATIONS(Name)
+values('Producer')
+insert into OCCUPATIONS(Name)
+values('Screenwriter')
+insert into ACCOUNTS(Name, Surname, Email, AccountType)
+values('Admin','Zlikovski','admin@mail.com',1)
+insert into users(Username, Password)
+values ('admin@mail.com','97c94ebe5d767a353b77f3c0ce2d429741f2e8c99473c3c150e2faa3d14c9da6')
+go
+create or alter proc DeleteData
+as
+delete from movie_person
+delete from persons
+delete from occupations
+delete from movies
+delete from genres
+delete from users
+delete from accounts
