@@ -10,6 +10,7 @@ create table MOVIES
 	Title nvarchar(max),
 	PubDate date,
 	ScreeningDate date,
+        ReleaseYear int,
 	Description nvarchar(max),
 	OriginalTitle nvarchar(max),
 	GenreID int,
@@ -21,7 +22,7 @@ create table MOVIES
 );
 create table OCCUPATIONS
 (
-	IDOccupation int not null identity(1,1),
+	IDOccupation int not null,
 	Name nvarchar(max),
 	constraint PKOccuaption primary key(IDOccupation)
 )
@@ -62,17 +63,26 @@ create table USERS
 	constraint PKUsers primary key(IDUser),
 	constraint FKUsers_Accounts foreign key(Username) references ACCOUNTS(Email) ON DELETE CASCADE ON UPDATE CASCADE
 );
+create table MOVIE_ACCOUNT
+(
+    ID int not null identity(1,1),
+    MovieID int not null,
+    AccountID int not null,
+    constraint PKMovie_Account primary key(ID),
+    constraint FKMovie_Account foreign key(MovieID) references MOVIES(IDMovie),
+    constraint FKAccount_Movie foreign key(AccountID) references ACCOUNTS(IDAccount)
+)
 go
 create or alter proc DBInit
 as
-insert into OCCUPATIONS(Name)
-values('Director')
-insert into OCCUPATIONS(Name)
-values('Actor')
-insert into OCCUPATIONS(Name)
-values('Producer')
-insert into OCCUPATIONS(Name)
-values('Screenwriter')
+insert into OCCUPATIONS(IDOccupation,Name)
+values(0,'Director')
+insert into OCCUPATIONS(IDOccupation,Name)
+values(1,'Actor')
+insert into OCCUPATIONS(IDOccupation,Name)
+values(2,'Producer')
+insert into OCCUPATIONS(IDOccupation,Name)
+values(3,'Screenwriter')
 insert into ACCOUNTS(Name, Surname, Email, AccountType)
 values('Admin','Zlikovski','admin@mail.com',1)
 insert into users(Username, Password)
@@ -80,6 +90,7 @@ values ('admin@mail.com','97c94ebe5d767a353b77f3c0ce2d429741f2e8c99473c3c150e2fa
 go
 create or alter proc DeleteData
 as
+delete from movie_account
 delete from movie_person
 delete from persons
 delete from occupations
