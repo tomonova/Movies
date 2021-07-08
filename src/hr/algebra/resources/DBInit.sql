@@ -98,3 +98,16 @@ delete from movies
 delete from genres
 delete from users
 delete from accounts
+go
+create or alter   proc checkUser
+	@userName nvarchar(50),
+	@userPass nvarchar(100),
+	@checkOutput int output
+as
+	if exists(
+		select * from USERS
+		where Username = @userName
+		and Password = @userPass)
+		set @checkOutput = '1'
+	else set @checkOutput = '0'
+go

@@ -5,10 +5,14 @@
  */
 package hr.algebra.dal;
 
+import hr.algebra.model.User;
+
 /**
  *
  * @author TomoNova
  */
 public interface Repository {
+
+    public boolean checkUser(User user) throws Exception;
     
 }

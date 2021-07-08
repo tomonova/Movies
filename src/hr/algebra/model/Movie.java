@@ -15,7 +15,7 @@ import java.util.Objects;
  * @author TomoNova
  */
 public class Movie {
-    public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+    public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ISO_DATE;
     private int idMovie;
     private String title;
     private LocalDate pubDate;
