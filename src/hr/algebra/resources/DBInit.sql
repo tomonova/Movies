@@ -111,3 +111,24 @@ as
 		set @checkOutput = '1'
 	else set @checkOutput = '0'
 go
+create or alter   proc checkIfUserExists
+	@userName nvarchar(50),
+	@checkOutput int output
+as
+	if exists(
+		select * from USERS
+		where Username = @userName)
+		set @checkOutput = '1'
+	else set @checkOutput = '0'
+go
+create or alter proc insertAccountAndUser
+	@firstName nvarchar(50),
+	@lastName nvarchar(50),
+	@userName nvarchar(50),
+	@accountType int,
+	@userPass nvarchar(100)
+as
+	insert into ACCOUNTS(Name, Surname, Email, AccountType)
+	values(@firstName,@lastName,@userName,@accountType)
+	insert into USERS(Username, Password)
+	values(@userName,@userPass)

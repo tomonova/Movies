@@ -20,13 +20,11 @@ public class Account {
     private AccountType accountType;
     private LocalDate joinDate;
 
-    public Account(int idAccount, String firstName, String lastName, String email, AccountType accountType, LocalDate joinDate) {
-        this.idAccount = idAccount;
+    public Account(String firstName, String lastName, String email, AccountType accountType) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.accountType = accountType;
-        this.joinDate = joinDate;
     }
 
     public Account() {

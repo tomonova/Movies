@@ -7,6 +7,7 @@ package hr.algebra;
 
 import hr.algebra.dal.Repository;
 import hr.algebra.dal.RepositoryFactory;
+import hr.algebra.model.Registerable;
 import hr.algebra.model.User;
 import hr.algebra.utils.MessageUtils;
 import java.util.Arrays;
@@ -20,7 +21,7 @@ import javax.swing.JTextField;
  *
  * @author TomoNova
  */
-public class LoginDialog extends javax.swing.JDialog {
+public class LoginDialog extends javax.swing.JDialog implements Registerable{
 
     private final String ERROR="User or password incorrect!!";
     private List<JTextField> validationFields;
@@ -80,6 +81,11 @@ public class LoginDialog extends javax.swing.JDialog {
 
         btRegister.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btRegister.setText("REGISTER");
+        btRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRegisterActionPerformed(evt);
+            }
+        });
 
         lblError.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         lblError.setForeground(new java.awt.Color(255, 0, 51));
@@ -173,6 +179,10 @@ public class LoginDialog extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btLoginActionPerformed
 
+    private void btRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegisterActionPerformed
+        new RegisterDialog(this,false).setVisible(true);
+    }//GEN-LAST:event_btRegisterActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -260,5 +270,10 @@ public class LoginDialog extends javax.swing.JDialog {
         for (int i = 0; i < validationFields.size(); i++) {
             validationFields.get(i).setText("");
         }
+    }
+
+    @Override
+    public void registerAccount(User user) {
+        tfUserName.setText(user.getUsername());
     }
 }

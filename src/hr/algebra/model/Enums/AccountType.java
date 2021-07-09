@@ -10,6 +10,15 @@ package hr.algebra.model.Enums;
  * @author TomoNova
  */
 public enum AccountType {
-    REGULAR,
-    ADMIN
+    REGULAR(0),
+    ADMIN(1);
+    private final int value;
+
+    private AccountType(int value) {
+        this.value = value;
+    }
+
+    public int getValue() {
+        return value;
+    }
 }

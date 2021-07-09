@@ -5,6 +5,7 @@
  */
 package hr.algebra.dal;
 
+import hr.algebra.model.Account;
 import hr.algebra.model.User;
 
 /**
@@ -14,5 +15,9 @@ import hr.algebra.model.User;
 public interface Repository {
 
     public boolean checkUser(User user) throws Exception;
+
+    public boolean checkIfUserExists(User user) throws Exception;
+
+    public void CreateAccountAndUser(Account account, User user) throws Exception;
     
 }
