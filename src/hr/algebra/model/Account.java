@@ -7,18 +7,21 @@ package hr.algebra.model;
 
 import hr.algebra.model.Enums.AccountType;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
  * @author TomoNova
  */
 public class Account {
+
     private int idAccount;
     private String firstName;
     private String lastName;
     private String email;
     private AccountType accountType;
     private LocalDate joinDate;
+    public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ISO_LOCAL_DATE;
 
     public Account(String firstName, String lastName, String email, AccountType accountType) {
         this.firstName = firstName;
@@ -26,6 +29,16 @@ public class Account {
         this.email = email;
         this.accountType = accountType;
     }
+
+    public Account(int idAccount, String firstName, String lastName, String email, AccountType accountType, LocalDate joinDate) {
+        this.idAccount = idAccount;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.accountType = accountType;
+        this.joinDate = joinDate;
+    }
+    
 
     public Account() {
     }
@@ -76,8 +89,7 @@ public class Account {
 
     @Override
     public String toString() {
-        return  firstName + lastName;
+        return firstName + lastName;
     }
-    
-    
+
 }

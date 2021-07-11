@@ -15,6 +15,13 @@ public final class DataSourceSingleton {
         }
         return instance;
     }
+    
+        public static DataSource getInstance(String serverName, String dataBaseName,String user, String password) {
+        if (instance == null) {
+            instance = createInstance(serverName,dataBaseName,user,password);
+        }
+        return instance;
+    }
 
     private static DataSource createInstance(String serverName, String dataBaseName, int port,String user, String password) {
         SQLServerDataSource dataSource = new SQLServerDataSource();
@@ -23,6 +30,14 @@ public final class DataSourceSingleton {
         dataSource.setUser(user);
         dataSource.setPassword(password);
         dataSource.setPortNumber(port);
+        return dataSource;
+    }
+    private static DataSource createInstance(String serverName, String dataBaseName,String user, String password) {
+        SQLServerDataSource dataSource = new SQLServerDataSource();
+        dataSource.setServerName(serverName);
+        dataSource.setDatabaseName(dataBaseName);
+        dataSource.setUser(user);
+        dataSource.setPassword(password);
         return dataSource;
     }
 }

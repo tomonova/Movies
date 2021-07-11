@@ -20,6 +20,7 @@ import java.net.HttpURLConnection;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -65,16 +66,21 @@ public class MovieParser {
                         startElement = event.asStartElement();
                         String qName = startElement.getName().getLocalPart();
                         tagType = TagType.from(qName);
-                        break;
-                    case XMLStreamConstants.CHARACTERS:
                         if (tagType.isPresent()) {
-                            Characters characters = event.asCharacters();
-                            String data = characters.getData().trim();
                             switch (tagType.get()) {
                                 case ITEM:
                                     movie = new Movie();
                                     movies.add(movie);
                                     break;
+                            }
+                        }
+                        break;
+
+                    case XMLStreamConstants.CHARACTERS:
+                        if (tagType.isPresent()) {
+                            Characters characters = event.asCharacters();
+                            String data = characters.getData().trim();
+                            switch (tagType.get()) {
                                 case TITLE:
                                     if (movie != null && !data.isEmpty()) {
                                         movie.setTitle(data);
@@ -82,13 +88,13 @@ public class MovieParser {
                                     break;
                                 case PUB_DATE:
                                     if (movie != null && !data.isEmpty()) {
-                                        LocalDate publishedDate = LocalDate.parse(data, DateTimeFormatter.ISO_LOCAL_DATE);
+                                        LocalDate publishedDate = LocalDate.parse(data, DateTimeFormatter.RFC_1123_DATE_TIME);
                                         movie.setPubDate(publishedDate);
                                     }
                                     break;
                                 case DESCRIPTION:
                                     if (movie != null && !data.isEmpty()) {
-                                        movie.setDescription(data);
+                                        movie.setDescription(data.substring(data.indexOf("\">") + 2, data.indexOf("<br")));
                                     }
                                     break;
                                 case ORIGNAZIV:
@@ -125,11 +131,8 @@ public class MovieParser {
                                     }
                                     break;
                                 case PLAKAT:
-                                    if (movie != null && startElement != null && movie.getPicturePath() == null) {
-                                        Attribute urlAttribute = startElement.getAttributeByName(new QName(ATTRIBUTE_URL));
-                                        if (urlAttribute != null) {
-                                            handlePicture(movie, urlAttribute.getValue());
-                                        }
+                                    if (movie != null && !data.isEmpty() && movie.getPicturePath() == null && !movieAlreadyExists(movies, movie)) {
+                                        handlePicture(movie, data);
                                     }
                                     break;
                                 case RATING:
@@ -143,8 +146,12 @@ public class MovieParser {
                 }
             }
         }
-        return movies;
-
+        //tek sam poslije skužio da imaju iste filmove nekoliko puta pa ispravljam to ovdje
+        HashSet<Movie> uniqueMovies = new HashSet<>();
+        for (Movie movie : movies) {
+            uniqueMovies.add(movie);
+        }
+        return movies = new ArrayList<>(uniqueMovies);
     }
 
     private static List<Person> GetOccupations(String data, Occupation occupation) {
@@ -183,5 +190,15 @@ public class MovieParser {
             return false;
         }
         return true;
+    }
+
+    private static boolean movieAlreadyExists(List<Movie> movies, Movie movie) {
+        int counter = 0;
+        for (Movie muvi : movies) {
+            if (muvi.equals(movie)) {
+                counter++;
+            }
+        }
+        return counter > 1 ? true : false;
     }
 }

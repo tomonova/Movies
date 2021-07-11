@@ -10,8 +10,17 @@ package hr.algebra.model.Enums;
  * @author TomoNova
  */
 public enum Occupation {
-    REDATELJ,
-    GLUMAC,
-    PRODUCENT,
-    SCENARIST
+    REDATELJ(0),
+    GLUMAC(1),
+    PRODUCENT(2),
+    SCENARIST(3);
+    private final int value;
+    
+    private Occupation(int value) {
+        this.value = value;
+    }
+    
+    public int getValue() {
+        return value;
+    }
 }

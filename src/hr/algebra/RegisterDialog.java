@@ -33,7 +33,6 @@ public class RegisterDialog extends javax.swing.JDialog {
 
     public RegisterDialog(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
-        // this is contract -> parent must be able to addAuthor!
         registerable = (Registerable) parent;
         initComponents();
         init();

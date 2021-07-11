@@ -9,7 +9,6 @@ create table MOVIES
 	IDMovie int not null identity(1,1),
 	Title nvarchar(max),
 	PubDate date,
-	ScreeningDate date,
         ReleaseYear int,
 	Description nvarchar(max),
 	OriginalTitle nvarchar(max),
@@ -72,6 +71,15 @@ create table MOVIE_ACCOUNT
     constraint FKMovie_Account foreign key(MovieID) references MOVIES(IDMovie),
     constraint FKAccount_Movie foreign key(AccountID) references ACCOUNTS(IDAccount)
 )
+create table STATUS
+(
+    Status int not null
+);
+go
+create or alter view v_movies
+as
+select IDMovie,Title,PubDate,ReleaseYear,Description,OriginalTitle,GENRES.Name as Genre, Picture,Rating,Length from MOVIES
+join GENRES on GENRES.IDGenre = MOVIES.GenreID
 go
 create or alter proc DBInit
 as
@@ -87,8 +95,10 @@ insert into ACCOUNTS(Name, Surname, Email, AccountType)
 values('Admin','Zlikovski','admin@mail.com',1)
 insert into users(Username, Password)
 values ('admin@mail.com','97c94ebe5d767a353b77f3c0ce2d429741f2e8c99473c3c150e2faa3d14c9da6')
+insert into STATUS(Status)
+values(0)
 go
-create or alter proc DeleteData
+create or alter proc DeleteDatabase
 as
 delete from movie_account
 delete from movie_person
@@ -98,6 +108,17 @@ delete from movies
 delete from genres
 delete from users
 delete from accounts
+go
+create or alter proc DeleteData
+as
+delete from movie_account
+delete from movie_person
+delete from persons
+delete from movies
+delete from genres
+update status
+set Status = 0
+where Status=1;
 go
 create or alter   proc checkUser
 	@userName nvarchar(50),
@@ -132,3 +153,68 @@ as
 	values(@firstName,@lastName,@userName,@accountType)
 	insert into USERS(Username, Password)
 	values(@userName,@userPass)
+go
+create or alter proc getAccount
+	@userName nvarchar(100)
+as
+select * from accounts
+where Email = @userName
+go
+create or alter proc insertGenres
+	@name nvarchar(100)
+as
+insert into Genres(Name)
+values(@name)
+go
+create or alter proc getMovies
+as
+select * from v_movies
+go
+create or alter proc CheckDbStatus
+as
+select * from status
+go
+create or alter proc GetGenreID
+@Name nvarchar(200),
+@checkOutput int output
+as
+select @checkOutput=IDGenre from GENRES
+where Name=@Name
+go
+create or alter proc InsertMovie
+	@Title nvarchar(100),
+	@PubDate date,
+	@ReleaseYear int,
+	@Description nvarchar(max),
+	@OriginalTitle nvarchar(100),
+	@GenreId int,
+	@Picture nvarchar(max),
+	@Rating int,
+	@Length int,
+	@outputInt int output
+as
+insert into MOVIES(Title,PubDate,ReleaseYear,Description,OriginalTitle,GenreID,Picture,Rating,Length)
+values(@Title,@PubDate,@ReleaseYear,@Description,@OriginalTitle,@GenreID,@Picture,@Rating,@Length)
+select SCOPE_IDENTITY() as IDMovie
+go
+create or alter proc GetPersonID
+@Name nvarchar(100),
+@Occuaption int,
+@personID int output
+as
+select @personId=IDPerson from PERSONS
+where Name=@Name
+and OccupationID=@Occuaption
+go
+create or alter proc InsertMoviePerson
+@MovieID int,
+@PersonID int
+as
+insert into MOVIE_PERSON(MovieID,PersonID)
+values(@MovieID,@PersonID)
+go
+create or alter proc ChangeDBStatus
+@Status int
+as
+update STATUS
+SET Status=@Status

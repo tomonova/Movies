@@ -19,7 +19,6 @@ public class Movie {
     private int idMovie;
     private String title;
     private LocalDate pubDate;
-    private LocalDate screeningDate;
     private int releaseYear;
     private String description;
     private String originalTitle;
@@ -33,10 +32,13 @@ public class Movie {
     public Movie() {
     }
 
-    public Movie(String title, LocalDate pubDate, LocalDate screeningDate, String description, String originalTitle, String picturePath, Genre genre, int rating, int length) {
+    public Movie(int idMovie,String title, LocalDate pubDate,
+            int releaseYear, String description, String originalTitle,
+            String picturePath, Genre genre, int rating, int length) {
+        this.idMovie=idMovie;
         this.title = title;
         this.pubDate = pubDate;
-        this.screeningDate = screeningDate;
+        this.releaseYear = releaseYear;
         this.description = description;
         this.originalTitle = originalTitle;
         this.picturePath = picturePath;
@@ -55,10 +57,6 @@ public class Movie {
 
     public LocalDate getPubDate() {
         return pubDate;
-    }
-
-    public LocalDate getScreeningDate() {
-        return screeningDate;
     }
 
     public String getDescription() {
@@ -99,10 +97,6 @@ public class Movie {
 
     public void setPubDate(LocalDate pubDate) {
         this.pubDate = pubDate;
-    }
-
-    public void setScreeningDate(LocalDate screeningDate) {
-        this.screeningDate = screeningDate;
     }
 
     public void setDescription(String description) {
@@ -148,7 +142,7 @@ public class Movie {
 
     @Override
     public String toString() {
-        return "Movie{" + "title=" + title + ", pubDate=" + pubDate + ", screeningDate=" + screeningDate + ", description=" + description + ", originalTitle=" + originalTitle + ", picturePath=" + picturePath + ", genre=" + genre + ", rating=" + rating + ", length=" + length + '}';
+        return idMovie+" - "+title;
     }
 
     @Override

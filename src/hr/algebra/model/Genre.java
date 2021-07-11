@@ -5,6 +5,8 @@
  */
 package hr.algebra.model;
 
+import java.util.Objects;
+
 /**
  *
  * @author TomoNova
@@ -38,4 +40,30 @@ public class Genre {
     public String toString() {
         return genre;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 89 * hash + Objects.hashCode(this.genre);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Genre other = (Genre) obj;
+        if (!Objects.equals(this.genre, other.genre)) {
+            return false;
+        }
+        return true;
+    }
+    
 }

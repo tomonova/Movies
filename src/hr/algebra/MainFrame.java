@@ -5,7 +5,19 @@
  */
 package hr.algebra;
 
+import hr.algebra.dal.Repository;
+import hr.algebra.dal.RepositoryFactory;
+import hr.algebra.model.Account;
+import hr.algebra.model.Enums.AccountType;
 import hr.algebra.model.User;
+import hr.algebra.utils.MessageUtils;
+import java.awt.event.ActionEvent;
+import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.AbstractAction;
+import javax.swing.JMenuItem;
+import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
 /**
  *
@@ -14,6 +26,10 @@ import hr.algebra.model.User;
 public class MainFrame extends javax.swing.JFrame {
 
     private User user;
+    private Account account;
+    private Repository repository;
+//    Tab names
+    private static final String UPLOAD_MOVIES = "Upload movies";
 
     public MainFrame() {
     }
@@ -21,7 +37,7 @@ public class MainFrame extends javax.swing.JFrame {
     public MainFrame(User user) {
         this.user=user;
         initComponents();
-        lbAccount.setText(user.getUsername());
+        init();
     }
 
     /**
@@ -33,34 +49,66 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        tpMain = new javax.swing.JTabbedPane();
         lbAccount = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        mbExit = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lbAccount.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        lbAccount.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
         lbAccount.setForeground(new java.awt.Color(102, 102, 255));
+
+        jMenu1.setText("About");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu1);
+
+        mbExit.setText("Exit");
+        mbExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mbExitMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(mbExit);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lbAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(864, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(tpMain, javax.swing.GroupLayout.PREFERRED_SIZE, 1210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(lbAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(lbAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 842, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(tpMain, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void mbExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mbExitMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_mbExitMouseClicked
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        MessageUtils.showInformationMessage("ABOUT", "Java 1 projekt demo");
+    }//GEN-LAST:event_jMenu1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -98,7 +146,58 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel lbAccount;
+    private javax.swing.JMenu mbExit;
+    private javax.swing.JTabbedPane tpMain;
     // End of variables declaration//GEN-END:variables
+
+    private void init() {
+        initRepository();
+        checkDBStatus();
+        setHelloMessage();
+        configurePanels();
+    }
+
+    private void setHelloMessage() {
+        try {
+            Optional<Account> optAccount =repository.getAccount(user.getUsername());
+            if (optAccount.isPresent()) {
+                account =optAccount.get();
+                lbAccount.setText("Bok "+account.getFirstName());
+            }
+            
+        } catch (Exception e) {
+            MessageUtils.showErrorMessage("ERROR", e.getMessage());
+        }
+    }
+
+    private void configurePanels() {
+        switch(account.getAccountType()){
+            case ADMIN:
+                tpMain.add(UPLOAD_MOVIES,new UploadMoviesPanel());
+            case REGULAR:
+                
+        }
+    }
+        private void initRepository() {
+        try {
+            repository = RepositoryFactory.getRepository();
+        } catch (Exception ex) {
+            Logger.getLogger(LoginDialog.class.getName()).log(Level.SEVERE, null, ex);
+            MessageUtils.showErrorMessage("ERROR", "Unable to initialize repository!");
+        }
+    }
+
+    private void checkDBStatus() {
+        try {
+            if (!repository.checkDBStatus()) {
+                repository.deleteData();
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            MessageUtils.showErrorMessage("ERROR", ex.getMessage());
+        }
+    }
 }

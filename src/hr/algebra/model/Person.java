@@ -7,6 +7,7 @@ package hr.algebra.model;
 
 import hr.algebra.model.Enums.Occupation;
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  *
@@ -21,7 +22,7 @@ public class Person {
     }
 
     public Person(String Name, Occupation occupation) {
-        this.Name = Name;
+        this.Name = Name.trim();
         this.occupation = occupation;
     }
 
@@ -30,7 +31,7 @@ public class Person {
     }
 
     public void setName(String Name) {
-        this.Name = Name;
+        this.Name = Name.trim();
     }
 
     public Occupation getOccupation() {
@@ -48,6 +49,35 @@ public class Person {
     @Override
     public String toString() {
         return Name+" - "+occupation;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 97 * hash + Objects.hashCode(this.Name);
+        hash = 97 * hash + Objects.hashCode(this.occupation);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Person other = (Person) obj;
+        if (!Objects.equals(this.Name, other.Name)) {
+            return false;
+        }
+        if (this.occupation != other.occupation) {
+            return false;
+        }
+        return true;
     }
     
     
