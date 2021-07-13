@@ -7,6 +7,7 @@ package hr.algebra.dal;
 
 import hr.algebra.model.Account;
 import hr.algebra.model.Enums.DBStatus;
+import hr.algebra.model.Genre;
 import hr.algebra.model.Movie;
 import hr.algebra.model.User;
 import java.util.List;
@@ -29,4 +30,7 @@ public interface Repository {
     public void deleteData() throws Exception;
     public boolean checkDBStatus() throws Exception;
     public void setDBstatus(DBStatus dbStatus) throws Exception;
+    public Optional<Movie> getMovie(int selectedMovieId) throws Exception;
+    public List<Genre> getGenres() throws Exception;
+    public void deleteMovie(int idMovie) throws Exception;
 }

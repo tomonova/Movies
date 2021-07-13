@@ -30,6 +30,7 @@ public class MainFrame extends javax.swing.JFrame {
     private Repository repository;
 //    Tab names
     private static final String UPLOAD_MOVIES = "Upload movies";
+    private static final String EDIT_MOVIES = "Edit movies";
 
     public MainFrame() {
     }
@@ -178,7 +179,7 @@ public class MainFrame extends javax.swing.JFrame {
             case ADMIN:
                 tpMain.add(UPLOAD_MOVIES,new UploadMoviesPanel());
             case REGULAR:
-                
+                tpMain.add(EDIT_MOVIES,new ManageMoviesPanel());  
         }
     }
         private void initRepository() {

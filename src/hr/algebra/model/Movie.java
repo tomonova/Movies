@@ -47,6 +47,24 @@ public class Movie {
         this.length = length;
     }
 
+    public Movie(int idMovie,String title, LocalDate pubDate, int releaseYear, String description, 
+            String originalTitle, String picturePath, List<Person> redatelj, 
+            List<Person> glumci, Genre genre, int rating, int length) {
+        this.idMovie=idMovie;
+        this.title = title;
+        this.pubDate = pubDate;
+        this.releaseYear = releaseYear;
+        this.description = description;
+        this.originalTitle = originalTitle;
+        this.picturePath = picturePath;
+        this.redatelj = redatelj;
+        this.glumci = glumci;
+        this.genre = genre;
+        this.rating = rating;
+        this.length = length;
+    }
+    
+
     public int getIdMovie() {
         return idMovie;
     }

@@ -27,7 +27,7 @@ public class Genre {
         return idGenre;
     }
 
-    public Genre(String genre, int idGenre) {
+    public Genre(int idGenre,String genre) {
         this.genre = genre;
         this.idGenre = idGenre;
     }

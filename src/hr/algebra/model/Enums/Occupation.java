@@ -23,4 +23,18 @@ public enum Occupation {
     public int getValue() {
         return value;
     }
+    
+    public static Occupation fromInt(int n){
+        switch(n){
+            case 0:
+                return REDATELJ;
+            case 1:
+                return GLUMAC;
+            case 2:
+                return PRODUCENT;
+            case 3:
+                return SCENARIST;
+        }   
+        return null;
+    }
 }

@@ -10,6 +10,7 @@ import hr.algebra.dal.RepositoryFactory;
 import hr.algebra.model.Enums.DBStatus;
 import hr.algebra.model.Movie;
 import hr.algebra.parsers.MovieParser;
+import hr.algebra.utils.FileUtils;
 import hr.algebra.utils.MessageUtils;
 import java.util.List;
 import java.util.logging.Level;
@@ -24,6 +25,8 @@ public class UploadMoviesPanel extends javax.swing.JPanel {
 
     private DefaultListModel<Movie> moviesModel;
     private Repository repository;
+    private static final String DIR = "assets";
+    private static final String EXT="jpg";
 
     public UploadMoviesPanel() {
         initComponents();
@@ -44,6 +47,7 @@ public class UploadMoviesPanel extends javax.swing.JPanel {
         lsMovies = new javax.swing.JList<>();
         btnUploadMovies = new javax.swing.JButton();
         btnDeleteMovies = new javax.swing.JButton();
+        lblInfo = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1210, 850));
 
@@ -69,6 +73,9 @@ public class UploadMoviesPanel extends javax.swing.JPanel {
             }
         });
 
+        lblInfo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblInfo.setForeground(new java.awt.Color(51, 51, 255));
+
         javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
         jPanel.setLayout(jPanelLayout);
         jPanelLayout.setHorizontalGroup(
@@ -80,15 +87,20 @@ public class UploadMoviesPanel extends javax.swing.JPanel {
                     .addGroup(jPanelLayout.createSequentialGroup()
                         .addComponent(btnUploadMovies, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnDeleteMovies, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnDeleteMovies, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(lblInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanelLayout.setVerticalGroup(
             jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUploadMovies, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDeleteMovies, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -108,24 +120,30 @@ public class UploadMoviesPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUploadMoviesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUploadMoviesActionPerformed
-        try {
-            List<Movie> movies = MovieParser.parse();
-            repository.deleteData();
-            repository.insertGenres(movies);
-            repository.insertPersons(movies);
-            repository.createMovies(movies);
-            repository.setDBstatus(DBStatus.READY);
-            loadModel();
+        new Thread(() -> {
+            try {
+                lblInfo.setText("Učitavam stavke!!!");
+                List<Movie> movies = MovieParser.parse();
+                repository.deleteData();
+                repository.insertGenres(movies);
+                repository.insertPersons(movies);
+                repository.createMovies(movies);
+                repository.setDBstatus(DBStatus.READY);
+                loadModel();
+            } catch (Exception ex) {
+                MessageUtils.showErrorMessage("ERROR", ex.getMessage());
+                Logger.getLogger(UploadMoviesPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }).start();
+            
 
-        } catch (Exception ex) {
-            MessageUtils.showErrorMessage("Unrecoverable error", "Unable to upload articles \n"+ex.getMessage());
-            System.exit(1);
-        }
     }//GEN-LAST:event_btnUploadMoviesActionPerformed
 
     private void btnDeleteMoviesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteMoviesActionPerformed
         try {
             repository.deleteData();
+            FileUtils.DeleteFilesInDirectory(DIR,EXT);
+            loadModel();
         } catch (Exception ex) {
             Logger.getLogger(UploadMoviesPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -137,6 +155,7 @@ public class UploadMoviesPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnUploadMovies;
     private javax.swing.JPanel jPanel;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblInfo;
     private javax.swing.JList<Movie> lsMovies;
     // End of variables declaration//GEN-END:variables
 
@@ -153,9 +172,20 @@ public class UploadMoviesPanel extends javax.swing.JPanel {
     }
 
     private void loadModel() throws Exception {
-        List<Movie> movies = repository.selectMovies();
-        moviesModel.clear();
-        movies.forEach(moviesModel::addElement);
-        lsMovies.setModel(moviesModel);
+        java.awt.EventQueue.invokeLater(()->{
+        
+            try {
+                List<Movie> movies = repository.selectMovies();
+                moviesModel.clear();
+                movies.forEach(moviesModel::addElement);
+                lsMovies.setModel(moviesModel);
+                if (lblInfo.getText()!="") {
+                lblInfo.setText("Učitavanje gotovo :D");
+                }
+            } catch (Exception ex) {
+                Logger.getLogger(UploadMoviesPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        
     }
 }

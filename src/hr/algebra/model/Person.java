@@ -26,6 +26,13 @@ public class Person {
         this.occupation = occupation;
     }
 
+    public Person(int idPerson, String Name, Occupation occupation) {
+        this.idPerson = idPerson;
+        this.Name = Name.trim();
+        this.occupation = occupation;
+    }
+    
+
     public String getName() {
         return Name;
     }
@@ -48,7 +55,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return Name+" - "+occupation;
+        return Name;
     }
 
     @Override

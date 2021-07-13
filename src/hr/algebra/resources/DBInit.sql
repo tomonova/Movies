@@ -218,3 +218,32 @@ create or alter proc ChangeDBStatus
 as
 update STATUS
 SET Status=@Status
+go
+create or alter proc GetMovie
+@movieId int
+as
+select * from v_movies
+where IDMovie=@movieId
+go
+create or alter proc GetMoviePersons
+@movieID int,
+@OccupadioID int
+as
+select * from PERSONS p
+join MOVIE_PERSON mp on mp.PersonID=p.IDPerson
+where OccupationID=@OccupadioID
+and mp.MovieID =@movieID
+go
+create or alter proc GetGenres
+as
+select * from Genres
+go
+create or alter proc DeleteMovie
+@MovieId int
+as
+delete from MOVIE_ACCOUNT
+where MovieID=@MovieId
+delete from MOVIE_PERSON
+where MovieID=@MovieId
+delete from MOVIES
+where IDMovie=@MovieId

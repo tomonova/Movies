@@ -18,6 +18,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -54,6 +55,10 @@ public class SqlRepository implements Repository {
     private static final String GET_PERSON_ID = "{ CALL GetPersonID (?,?,?) }";
     private static final String INSERT_MP_CONNECTION = "{ CALL InsertMoviePerson (?,?) }";
     private static final String CHANGE_DBSTATUS = "{ CALL ChangeDBStatus (?) }";
+    private static final String GET_MOVIE = "{ CALL GetMovie (?) }";
+    private static final String GET_MOVIE_PERSONS = "{ CALL GetMoviePersons (?,?) }";
+    private static final String GET_GENRES = "{ CALL GetGenres}";
+    private static final String DELETE_MOVIE = "{ CALL DeleteMovie (?)}";
 
 //    Data base column names
     private static final String ID_ACCOUNT = "IDAccount";
@@ -72,7 +77,11 @@ public class SqlRepository implements Repository {
     private static final String PICTURE_PATH = "Picture";
     private static final String RATING = "Rating";
     private static final String LENGTH = "Length";
+    private static final String ID_PERSON = "IDPerson";
     private static final String ID_GENRE = "IDGenre";
+    private static final String PERSON_NAME = "Name";
+    private static final String PERSON_OCCUPATION = "OccupationID";
+    private static final String GENRE_NAME = "Name";
 
     @Override
     public boolean checkUser(User user) throws Exception {
@@ -196,6 +205,68 @@ public class SqlRepository implements Repository {
     }
 
     @Override
+    public Optional<Movie> getMovie(int selectedMovieId) throws Exception {
+        Properties appProps = new Properties();
+        appProps.load(new FileInputStream(propFilePath));
+        DataSource ds = DataSourceSingleton.getInstance(
+                appProps.getProperty(SERVER_NAME),
+                appProps.getProperty(DATABASE_NAME),
+                Integer.parseInt(appProps.getProperty(PORT)),
+                appProps.getProperty(USER),
+                appProps.getProperty(PASSWORD));
+        try (Connection con = ds.getConnection();
+                CallableStatement stmt = con.prepareCall(GET_MOVIE)) {
+            stmt.setInt(1, selectedMovieId);
+            try (ResultSet rs = stmt.executeQuery()) {
+
+                if (rs.next()) {
+                    return Optional.of(new Movie(
+                            rs.getInt(ID_MOVIE),
+                            rs.getString(TITLE),
+                            LocalDate.parse(rs.getString(PUBLISHED_DATE), Movie.DATE_FORMATTER),
+                            rs.getInt(RELEASE_YEAR),
+                            rs.getString(DESCRIPTION),
+                            rs.getString(ORIGINAL_TITLE),
+                            rs.getString(PICTURE_PATH),
+                            getMoviePersons(selectedMovieId, Occupation.REDATELJ),
+                            getMoviePersons(selectedMovieId, Occupation.GLUMAC),
+                            new Genre(rs.getString(GENRE)),
+                            rs.getInt(RATING),
+                            rs.getInt(LENGTH)));
+                }
+            }
+        }
+        return Optional.empty();
+    }
+
+    public List<Person> getMoviePersons(int movieID, Occupation occupation) throws FileNotFoundException, IOException, SQLException {
+        List<Person> persons = new ArrayList<>();
+        Properties appProps = new Properties();
+        appProps.load(new FileInputStream(propFilePath));
+        DataSource ds = DataSourceSingleton.getInstance(
+                appProps.getProperty(SERVER_NAME),
+                appProps.getProperty(DATABASE_NAME),
+                Integer.parseInt(appProps.getProperty(PORT)),
+                appProps.getProperty(USER),
+                appProps.getProperty(PASSWORD));
+        try (Connection con = ds.getConnection();
+                CallableStatement stmt = con.prepareCall(GET_MOVIE_PERSONS)) {
+            stmt.setInt(1, movieID);
+            stmt.setInt(2, occupation.getValue());
+            try (ResultSet rs = stmt.executeQuery()) {
+
+                while (rs.next()) {
+                    persons.add(new Person(
+                            rs.getInt(ID_PERSON),
+                            rs.getString(PERSON_NAME),
+                            Occupation.fromInt(rs.getInt(PERSON_OCCUPATION))));
+                }
+                return persons;
+            }
+        }
+    }
+
+    @Override
     public void createMovies(List<Movie> movies) throws Exception {
         movies.forEach(m -> {
             try {
@@ -267,7 +338,7 @@ public class SqlRepository implements Repository {
         DataSource ds = DataSourceSingleton.getInstance(
                 appProps.getProperty(SERVER_NAME),
                 appProps.getProperty(DATABASE_NAME),
-//                Integer.parseInt(appProps.getProperty(PORT)),
+                //                Integer.parseInt(appProps.getProperty(PORT)),
                 appProps.getProperty(USER),
                 appProps.getProperty(PASSWORD));
         try (Connection con = ds.getConnection();
@@ -288,7 +359,7 @@ public class SqlRepository implements Repository {
         DataSource ds = DataSourceSingleton.getInstance(
                 appProps.getProperty(SERVER_NAME),
                 appProps.getProperty(DATABASE_NAME),
-               // Integer.parseInt(appProps.getProperty(PORT)),
+                // Integer.parseInt(appProps.getProperty(PORT)),
                 appProps.getProperty(USER),
                 appProps.getProperty(PASSWORD));
         try (Connection con = ds.getConnection();
@@ -411,6 +482,47 @@ public class SqlRepository implements Repository {
         try (Connection con = ds.getConnection();
                 CallableStatement stmt = con.prepareCall(CHANGE_DBSTATUS)) {
             stmt.setInt(1, dbStatus.getValue());
+            stmt.executeUpdate();
+        }
+    }
+
+    @Override
+    public List<Genre> getGenres() throws Exception {
+        List<Genre> genres = new ArrayList<>();
+        Properties appProps = new Properties();
+        appProps.load(new FileInputStream(propFilePath));
+        DataSource ds = DataSourceSingleton.getInstance(
+                appProps.getProperty(SERVER_NAME),
+                appProps.getProperty(DATABASE_NAME),
+                Integer.parseInt(appProps.getProperty(PORT)),
+                appProps.getProperty(USER),
+                appProps.getProperty(PASSWORD));
+        try (Connection con = ds.getConnection();
+                CallableStatement stmt = con.prepareCall(GET_GENRES);
+                ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                genres.add(new Genre(
+                        rs.getInt(ID_GENRE),
+                        rs.getString(GENRE_NAME)));
+            }
+            return genres;
+        }
+    }
+
+    @Override
+    public void deleteMovie(int idMovie) throws Exception{
+        Properties appProps = new Properties();
+        appProps.load(new FileInputStream(propFilePath));
+        DataSource ds = DataSourceSingleton.getInstance(
+                appProps.getProperty(SERVER_NAME),
+                appProps.getProperty(DATABASE_NAME),
+                Integer.parseInt(appProps.getProperty(PORT)),
+                appProps.getProperty(USER),
+                appProps.getProperty(PASSWORD));
+        try (Connection con = ds.getConnection();
+                CallableStatement stmt = con.prepareCall(DELETE_MOVIE)) {
+            stmt.setInt(1, idMovie);
             stmt.executeUpdate();
         }
     }
