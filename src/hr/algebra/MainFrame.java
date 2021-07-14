@@ -8,17 +8,12 @@ package hr.algebra;
 import hr.algebra.dal.Repository;
 import hr.algebra.dal.RepositoryFactory;
 import hr.algebra.model.Account;
-import hr.algebra.model.Enums.AccountType;
 import hr.algebra.model.User;
 import hr.algebra.utils.MessageUtils;
 import java.awt.HeadlessException;
-import java.awt.event.ActionEvent;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.AbstractAction;
-import javax.swing.JMenuItem;
-import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
 /**
  *

@@ -36,4 +36,9 @@ public interface Repository {
     public void deleteMovie(int idMovie) throws Exception;
     public Set<Movie> GetMovies(User user)  throws Exception;
     public Set<Movie> GetMovies()  throws Exception;
+    public void SaveFavorites(Set<Movie> favouriteMovies,User user) throws Exception;
+    public void DeleteFavouriteMovies(User user) throws Exception;
+    public void DeleteFavouriteMovies(User user, Set<Movie> selectedMovies)throws Exception;
+    public void createMovie(Movie movie) throws Exception;
+    public void updateArticle(Movie selectedMovie) throws Exception;
 }

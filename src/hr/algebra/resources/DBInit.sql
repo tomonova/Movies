@@ -256,3 +256,65 @@ join MOVIE_ACCOUNT ma on v.IDMovie = ma.MovieID
 join ACCOUNTS a on a.IDAccount = ma.AccountID
 join USERS u on u.Username = a.Email
 where u.Username=@userName
+go
+create or alter proc DeleteFavouriteMovies
+@userName nvarchar(100)
+as
+delete from MOVIE_ACCOUNT
+where AccountID = 
+(
+    select IDAccount from ACCOUNTS a
+    join USERS u on u.Username =a.Email
+    where u.Username=@userName
+)
+go
+create or alter proc SaveFavouriteMovies
+@movieID int,
+@userName nvarchar(100)
+as
+    insert into MOVIE_ACCOUNT (MovieID,AccountID)
+    values(@movieID,(select IDAccount from ACCOUNTS a join USERS u on u.Username =a.Email where u.Username=@userName))
+go
+create or alter proc DeleteSelectedFavouriteMovies
+@userName nvarchar(100),
+@movieID int
+as
+delete from MOVIE_ACCOUNT
+where AccountID = 
+(
+	select IDAccount from ACCOUNTS a
+	join USERS u on u.Username =a.Email
+	where u.Username=@userName
+)
+and MovieID=@movieID
+go
+create or ALTER   proc UpdateMovie
+	@movieId int,
+	@Title nvarchar(100),
+	@PubDate date,
+	@ReleaseYear int,
+	@Description nvarchar(max),
+	@OriginalTitle nvarchar(100),
+	@GenreId int,
+	@Picture nvarchar(max),
+	@Rating int,
+	@Length int
+as
+update MOVIES
+set
+Title=@Title,
+PubDate=@PubDate,
+ReleaseYear=@ReleaseYear,
+Description=@Description,
+OriginalTitle=@OriginalTitle,
+GenreID=@GenreID,
+Picture=@Picture,
+Rating=@Rating,
+Length=@Length
+where IDMovie=@movieId
+go
+create or alter proc DeleteMoviePerson
+@movieId int
+as
+delete from MOVIE_PERSON
+where MovieID=@movieId

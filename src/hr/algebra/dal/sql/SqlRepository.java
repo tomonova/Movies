@@ -18,7 +18,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -54,6 +53,7 @@ public class SqlRepository implements Repository {
     private static final String INSERT_ACTOR = "{ CALL InsertActor (?) }";
     private static final String GET_GENRE_ID = "{ CALL GetGenreID (?,?) }";
     private static final String INSERT_MOVIE = "{ CALL InsertMovie (?,?,?,?,?,?,?,?,?,?) }";
+    private static final String UPDATE_MOVIE = "{ CALL UpdateMovie (?,?,?,?,?,?,?,?,?,?) }";
     private static final String GET_PERSON_ID = "{ CALL GetPersonID (?,?,?) }";
     private static final String INSERT_MP_CONNECTION = "{ CALL InsertMoviePerson (?,?) }";
     private static final String CHANGE_DBSTATUS = "{ CALL ChangeDBStatus (?) }";
@@ -62,6 +62,10 @@ public class SqlRepository implements Repository {
     private static final String GET_GENRES = "{ CALL GetGenres}";
     private static final String DELETE_MOVIE = "{ CALL DeleteMovie (?)}";
     private static final String GET_FAVOURITE_MOVIES = "{ CALL GetFavouriteMovies (?)}";
+    private static final String SAVE_FAVOURITE_MOVIES = "{ CALL SaveFavouriteMovies (?,?)}";
+    private static final String DELETE_FAVOURITE_MOVIES = "{ CALL DeleteFavouriteMovies (?)}";
+    private static final String DELETE_SELECTED_FAVOURITE_MOVIES = "{ CALL DeleteSelectedFavouriteMovies (?,?)}";
+    private static final String DELETE_MOVIE_PERSON = "{ CALL DeleteMoviePerson (?)}";
 
 //    Data base column names
     private static final String ID_ACCOUNT = "IDAccount";
@@ -592,6 +596,117 @@ public class SqlRepository implements Repository {
                         Integer.parseInt(rs.getString(LENGTH))));
             }
             return movies;
+        }
+    }
+
+    @Override
+    public void SaveFavorites(Set<Movie> favouriteMovies,User user) throws Exception {
+        DeleteFavouriteMovies(user);
+        Properties appProps = new Properties();
+        appProps.load(new FileInputStream(propFilePath));
+        DataSource ds = DataSourceSingleton.getInstance(
+                appProps.getProperty(SERVER_NAME),
+                appProps.getProperty(DATABASE_NAME),
+                Integer.parseInt(appProps.getProperty(PORT)),
+                appProps.getProperty(USER),
+                appProps.getProperty(PASSWORD));
+        try (Connection con = ds.getConnection();
+                CallableStatement stmt = con.prepareCall(SAVE_FAVOURITE_MOVIES)) {
+            if (favouriteMovies.isEmpty()) {
+                return;
+            }
+            for (Movie movie : favouriteMovies) {
+                stmt.setInt(1,movie.getIdMovie());
+                stmt.setString(2,user.getUsername());
+                stmt.executeUpdate();
+            }
+        }
+    }
+
+    @Override
+    public void DeleteFavouriteMovies(User user) throws FileNotFoundException, FileNotFoundException, IOException, SQLException{
+        Properties appProps = new Properties();
+        appProps.load(new FileInputStream(propFilePath));
+        DataSource ds = DataSourceSingleton.getInstance(
+                appProps.getProperty(SERVER_NAME),
+                appProps.getProperty(DATABASE_NAME),
+                Integer.parseInt(appProps.getProperty(PORT)),
+                appProps.getProperty(USER),
+                appProps.getProperty(PASSWORD));
+        try (Connection con = ds.getConnection();
+                CallableStatement stmt = con.prepareCall(DELETE_FAVOURITE_MOVIES)) {
+            stmt.setString(1, user.getUsername());
+            stmt.executeUpdate();
+        }
+    }
+    
+    @Override
+    public void DeleteFavouriteMovies(User user,Set<Movie> movies) throws Exception{
+        Properties appProps = new Properties();
+        appProps.load(new FileInputStream(propFilePath));
+        DataSource ds = DataSourceSingleton.getInstance(
+                appProps.getProperty(SERVER_NAME),
+                appProps.getProperty(DATABASE_NAME),
+                Integer.parseInt(appProps.getProperty(PORT)),
+                appProps.getProperty(USER),
+                appProps.getProperty(PASSWORD));
+        try (Connection con = ds.getConnection();
+                CallableStatement stmt = con.prepareCall(DELETE_SELECTED_FAVOURITE_MOVIES)) {
+            for (Movie movie : movies) {
+                stmt.setString(1,user.getUsername());
+                stmt.setInt(2,movie.getIdMovie());
+                stmt.executeUpdate();
+            }
+        }
+    }
+
+    @Override
+    public void createMovie(Movie movie) throws Exception{
+        int movieID=insertMovie(movie);
+        connectPersonsAndMovie(movie, movieID);
+    }
+
+    @Override
+    public void updateArticle(Movie movie) throws Exception {
+        Properties appProps = new Properties();
+        appProps.load(new FileInputStream(propFilePath));
+        DataSource ds = DataSourceSingleton.getInstance(
+                appProps.getProperty(SERVER_NAME),
+                appProps.getProperty(DATABASE_NAME),
+                Integer.parseInt(appProps.getProperty(PORT)),
+                appProps.getProperty(USER),
+                appProps.getProperty(PASSWORD));
+        try (Connection con = ds.getConnection();
+                CallableStatement stmt = con.prepareCall(UPDATE_MOVIE)) {
+            stmt.setInt(1, movie.getIdMovie());
+            stmt.setString(2, movie.getTitle());
+            stmt.setString(3, movie.getPubDate().toString());
+            stmt.setInt(4, movie.getReleaseYear());
+            stmt.setString(5, movie.getDescription());
+            stmt.setString(6, movie.getOriginalTitle());
+            stmt.setInt(7, GetGenreID(movie.getGenre()));
+            stmt.setString(8, movie.getPicturePath());
+            stmt.setInt(9, movie.getRating());
+            stmt.setInt(10, movie.getLength());
+            stmt.executeUpdate();
+        }
+        deleteExistingPersonMovieConnection(movie);
+        connectPersonsAndMovie(movie, movie.getIdMovie());
+    }
+
+    private void deleteExistingPersonMovieConnection(Movie movie) throws Exception{
+        Properties appProps = new Properties();
+        appProps.load(new FileInputStream(propFilePath));
+        DataSource ds = DataSourceSingleton.getInstance(
+                appProps.getProperty(SERVER_NAME),
+                appProps.getProperty(DATABASE_NAME),
+                Integer.parseInt(appProps.getProperty(PORT)),
+                appProps.getProperty(USER),
+                appProps.getProperty(PASSWORD));
+        try (Connection con = ds.getConnection();
+                CallableStatement stmt = con.prepareCall(DELETE_MOVIE_PERSON)) {
+            stmt.setInt(1, movie.getIdMovie());
+            stmt.executeUpdate();
         }
     }
 }
