@@ -14,7 +14,7 @@ import java.util.Objects;
  *
  * @author TomoNova
  */
-public class Movie {
+public class Movie implements Comparable<Movie>{
     public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ISO_DATE;
     private int idMovie;
     private String title;
@@ -194,6 +194,11 @@ public class Movie {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public int compareTo(Movie o) {
+        return Integer.compare(this.idMovie, o.idMovie);
     }
 
     

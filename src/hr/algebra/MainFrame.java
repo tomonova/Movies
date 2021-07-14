@@ -11,6 +11,7 @@ import hr.algebra.model.Account;
 import hr.algebra.model.Enums.AccountType;
 import hr.algebra.model.User;
 import hr.algebra.utils.MessageUtils;
+import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.util.Optional;
 import java.util.logging.Level;
@@ -31,9 +32,12 @@ public class MainFrame extends javax.swing.JFrame {
 //    Tab names
     private static final String UPLOAD_MOVIES = "Upload movies";
     private static final String EDIT_MOVIES = "Edit movies";
+    private static final String FAVOURITE_MOVIES = "Favourites";
 
-    public MainFrame() {
+    public MainFrame() throws HeadlessException {
     }
+    
+    
     
     public MainFrame(User user) {
         this.user=user;
@@ -178,8 +182,11 @@ public class MainFrame extends javax.swing.JFrame {
         switch(account.getAccountType()){
             case ADMIN:
                 tpMain.add(UPLOAD_MOVIES,new UploadMoviesPanel());
+                break;
             case REGULAR:
                 tpMain.add(EDIT_MOVIES,new ManageMoviesPanel());  
+                tpMain.add(FAVOURITE_MOVIES,new FavouritesPanel(user));
+                break;
         }
     }
         private void initRepository() {

@@ -247,3 +247,12 @@ delete from MOVIE_PERSON
 where MovieID=@MovieId
 delete from MOVIES
 where IDMovie=@MovieId
+go
+create or alter proc GetFavouriteMovies
+@userName nvarchar(100)
+as
+select * from v_movies v
+join MOVIE_ACCOUNT ma on v.IDMovie = ma.MovieID
+join ACCOUNTS a on a.IDAccount = ma.AccountID
+join USERS u on u.Username = a.Email
+where u.Username=@userName

@@ -12,6 +12,7 @@ import hr.algebra.model.Movie;
 import hr.algebra.model.User;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  *
@@ -33,4 +34,6 @@ public interface Repository {
     public Optional<Movie> getMovie(int selectedMovieId) throws Exception;
     public List<Genre> getGenres() throws Exception;
     public void deleteMovie(int idMovie) throws Exception;
+    public Set<Movie> GetMovies(User user)  throws Exception;
+    public Set<Movie> GetMovies()  throws Exception;
 }

@@ -24,6 +24,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Properties;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sql.DataSource;
@@ -59,6 +61,7 @@ public class SqlRepository implements Repository {
     private static final String GET_MOVIE_PERSONS = "{ CALL GetMoviePersons (?,?) }";
     private static final String GET_GENRES = "{ CALL GetGenres}";
     private static final String DELETE_MOVIE = "{ CALL DeleteMovie (?)}";
+    private static final String GET_FAVOURITE_MOVIES = "{ CALL GetFavouriteMovies (?)}";
 
 //    Data base column names
     private static final String ID_ACCOUNT = "IDAccount";
@@ -511,7 +514,7 @@ public class SqlRepository implements Repository {
     }
 
     @Override
-    public void deleteMovie(int idMovie) throws Exception{
+    public void deleteMovie(int idMovie) throws Exception {
         Properties appProps = new Properties();
         appProps.load(new FileInputStream(propFilePath));
         DataSource ds = DataSourceSingleton.getInstance(
@@ -524,6 +527,71 @@ public class SqlRepository implements Repository {
                 CallableStatement stmt = con.prepareCall(DELETE_MOVIE)) {
             stmt.setInt(1, idMovie);
             stmt.executeUpdate();
+        }
+    }
+
+    @Override
+    public Set<Movie> GetMovies(User user) throws Exception {
+        Set<Movie> movies = new TreeSet<>();
+        Properties appProps = new Properties();
+        appProps.load(new FileInputStream(propFilePath));
+        DataSource ds = DataSourceSingleton.getInstance(
+                appProps.getProperty(SERVER_NAME),
+                appProps.getProperty(DATABASE_NAME),
+                Integer.parseInt(appProps.getProperty(PORT)),
+                appProps.getProperty(USER),
+                appProps.getProperty(PASSWORD));
+        try (Connection con = ds.getConnection();
+                CallableStatement stmt = con.prepareCall(GET_FAVOURITE_MOVIES)) {
+            stmt.setString(1, user.getUsername());
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                movies.add(new Movie(
+                        rs.getInt(ID_MOVIE),
+                        rs.getString(TITLE),
+                        LocalDate.parse(rs.getString(PUBLISHED_DATE), Movie.DATE_FORMATTER),
+                        Integer.parseInt(rs.getString(RELEASE_YEAR)),
+                        rs.getString(DESCRIPTION),
+                        rs.getString(ORIGINAL_TITLE),
+                        rs.getString(PICTURE_PATH),
+                        new Genre(rs.getString(GENRE)),
+                        Integer.parseInt(rs.getString(RATING)),
+                        Integer.parseInt(rs.getString(LENGTH))));
+            }
+            return movies;
+        }
+    }
+
+    @Override
+    public Set<Movie> GetMovies() throws Exception {
+        Set<Movie> movies = new TreeSet<>();
+        Properties appProps = new Properties();
+        appProps.load(new FileInputStream(propFilePath));
+        DataSource ds = DataSourceSingleton.getInstance(
+                appProps.getProperty(SERVER_NAME),
+                appProps.getProperty(DATABASE_NAME),
+                Integer.parseInt(appProps.getProperty(PORT)),
+                appProps.getProperty(USER),
+                appProps.getProperty(PASSWORD));
+        try (Connection con = ds.getConnection();
+                CallableStatement stmt = con.prepareCall(GET_MOVIES);
+                ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                movies.add(new Movie(
+                        rs.getInt(ID_MOVIE),
+                        rs.getString(TITLE),
+                        LocalDate.parse(rs.getString(PUBLISHED_DATE), Movie.DATE_FORMATTER),
+                        Integer.parseInt(rs.getString(RELEASE_YEAR)),
+                        rs.getString(DESCRIPTION),
+                        rs.getString(ORIGINAL_TITLE),
+                        rs.getString(PICTURE_PATH),
+                        new Genre(rs.getString(GENRE)),
+                        Integer.parseInt(rs.getString(RATING)),
+                        Integer.parseInt(rs.getString(LENGTH))));
+            }
+            return movies;
         }
     }
 }
