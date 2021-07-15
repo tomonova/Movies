@@ -318,3 +318,9 @@ create or alter proc DeleteMoviePerson
 as
 delete from MOVIE_PERSON
 where MovieID=@movieId
+go
+create or alter proc GetAllPersons
+@occupationID int
+as
+select * from persons
+where OccupationID=@occupationID

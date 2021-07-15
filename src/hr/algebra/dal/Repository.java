@@ -7,8 +7,10 @@ package hr.algebra.dal;
 
 import hr.algebra.model.Account;
 import hr.algebra.model.Enums.DBStatus;
+import hr.algebra.model.Enums.Occupation;
 import hr.algebra.model.Genre;
 import hr.algebra.model.Movie;
+import hr.algebra.model.Person;
 import hr.algebra.model.User;
 import java.util.List;
 import java.util.Optional;
@@ -41,4 +43,5 @@ public interface Repository {
     public void DeleteFavouriteMovies(User user, Set<Movie> selectedMovies)throws Exception;
     public void createMovie(Movie movie) throws Exception;
     public void updateArticle(Movie selectedMovie) throws Exception;
+    public Set<Person> GetAllPersons(Occupation occupation) throws Exception;
 }

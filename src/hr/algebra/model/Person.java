@@ -5,6 +5,7 @@
  */
 package hr.algebra.model;
 
+import static com.sun.xml.internal.ws.util.VersionUtil.compare;
 import hr.algebra.model.Enums.Occupation;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -13,7 +14,7 @@ import java.util.Objects;
  *
  * @author TomoNova
  */
-public class Person {
+public class Person implements Comparable<Person>{
     private int idPerson;
     private String Name;
     private Occupation occupation;
@@ -85,7 +86,11 @@ public class Person {
             return false;
         }
         return true;
+    }   
+
+    @Override
+    public int compareTo(Person o) {
+        return this.getName().compareTo(o.getName());
     }
-    
     
 }

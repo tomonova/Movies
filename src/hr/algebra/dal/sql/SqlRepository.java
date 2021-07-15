@@ -66,6 +66,7 @@ public class SqlRepository implements Repository {
     private static final String DELETE_FAVOURITE_MOVIES = "{ CALL DeleteFavouriteMovies (?)}";
     private static final String DELETE_SELECTED_FAVOURITE_MOVIES = "{ CALL DeleteSelectedFavouriteMovies (?,?)}";
     private static final String DELETE_MOVIE_PERSON = "{ CALL DeleteMoviePerson (?)}";
+    private static final String GET_ALL_PERSONS = "{ CALL GetAllPersons (?)}";
 
 //    Data base column names
     private static final String ID_ACCOUNT = "IDAccount";
@@ -707,6 +708,32 @@ public class SqlRepository implements Repository {
                 CallableStatement stmt = con.prepareCall(DELETE_MOVIE_PERSON)) {
             stmt.setInt(1, movie.getIdMovie());
             stmt.executeUpdate();
+        }
+    }
+
+    @Override
+    public Set<Person> GetAllPersons(Occupation occupation) throws Exception {
+        Set<Person> persons = new TreeSet<>();
+        Properties appProps = new Properties();
+        appProps.load(new FileInputStream(propFilePath));
+        DataSource ds = DataSourceSingleton.getInstance(
+                appProps.getProperty(SERVER_NAME),
+                appProps.getProperty(DATABASE_NAME),
+                Integer.parseInt(appProps.getProperty(PORT)),
+                appProps.getProperty(USER),
+                appProps.getProperty(PASSWORD));
+        try (Connection con = ds.getConnection();
+                CallableStatement stmt = con.prepareCall(GET_ALL_PERSONS)){
+                stmt.setInt(1, occupation.getValue());
+                ResultSet rs = stmt.executeQuery(); 
+
+            while (rs.next()) {
+                persons.add(new Person(
+                        rs.getInt(ID_PERSON),
+                        rs.getString(NAME),
+                        Occupation.fromInt(rs.getInt(PERSON_OCCUPATION))));
+            }
+            return persons;
         }
     }
 }

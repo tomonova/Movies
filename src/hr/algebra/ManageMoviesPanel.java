@@ -7,15 +7,21 @@ package hr.algebra;
 
 import hr.algebra.dal.Repository;
 import hr.algebra.dal.RepositoryFactory;
+import hr.algebra.model.Enums.Occupation;
 import hr.algebra.model.Genre;
 import hr.algebra.model.GenreComboBoxModel;
 import hr.algebra.model.Movie;
 import hr.algebra.model.Person;
 import hr.algebra.model.MovieTableModel;
+import hr.algebra.model.PersonManagable;
 import hr.algebra.parsers.MovieParser;
 import hr.algebra.utils.FileUtils;
 import hr.algebra.utils.IconUtils;
 import hr.algebra.utils.MessageUtils;
+import java.awt.Frame;
+import java.awt.Window;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -33,13 +39,14 @@ import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
+import javax.swing.SwingUtilities;
 import javax.swing.text.JTextComponent;
 
 /**
  *
  * @author TomoNova
  */
-public class ManageMoviesPanel extends javax.swing.JPanel {
+public class ManageMoviesPanel extends javax.swing.JPanel implements PersonManagable {
 
     private static final String DIR = "assets";
     private static final String NO_IMAGE = "no_image.png";
@@ -72,7 +79,6 @@ public class ManageMoviesPanel extends javax.swing.JPanel {
         lbDirectors = new javax.swing.JList<>();
         btnChooseImg = new javax.swing.JButton();
         tfImageUrl = new javax.swing.JTextField();
-        btnManagePersons = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -108,6 +114,8 @@ public class ManageMoviesPanel extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         tfReleaseYear = new javax.swing.JTextField();
         lblReleaseYearError = new javax.swing.JLabel();
+        btnManageDirectors = new javax.swing.JButton();
+        btnManageActors = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(1210, 850));
         setMinimumSize(new java.awt.Dimension(1210, 850));
@@ -153,14 +161,6 @@ public class ManageMoviesPanel extends javax.swing.JPanel {
         });
 
         tfImageUrl.setEditable(false);
-
-        btnManagePersons.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnManagePersons.setText("Manage Persons");
-        btnManagePersons.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManagePersonsActionPerformed(evt);
-            }
-        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 0, 255));
@@ -284,6 +284,22 @@ public class ManageMoviesPanel extends javax.swing.JPanel {
         lblReleaseYearError.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblReleaseYearError.setForeground(new java.awt.Color(255, 0, 51));
 
+        btnManageDirectors.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnManageDirectors.setText("Manage directors");
+        btnManageDirectors.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageDirectorsActionPerformed(evt);
+            }
+        });
+
+        btnManageActors.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnManageActors.setText("Manage actors");
+        btnManageActors.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageActorsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -350,18 +366,22 @@ public class ManageMoviesPanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbACtors, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbDirectors, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnManagePersons, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(69, 69, 69))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnManageActors)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnManageDirectors, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lbACtors, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lbDirectors, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(liActorsError)
                                     .addComponent(liDirectorsError))
-                                .addGap(19, 19, 19))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(69, 69, 69)))
+                                .addGap(19, 19, 19)))
                         .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tfImageUrl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -382,8 +402,7 @@ public class ManageMoviesPanel extends javax.swing.JPanel {
                         .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnClearForm, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addComponent(btnChooseImg)
                 .addContainerGap())
         );
@@ -443,7 +462,7 @@ public class ManageMoviesPanel extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(10, 10, 10)
                                         .addComponent(liActorsError)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
@@ -464,22 +483,28 @@ public class ManageMoviesPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(7, 7, 7)
                         .addComponent(tfImageUrl, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnChooseImg, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblPosterError))
                         .addGap(19, 19, 19))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnManagePersons, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnClearForm, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnClearForm, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnManageDirectors, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnManageActors, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -503,10 +528,6 @@ public class ManageMoviesPanel extends javax.swing.JPanel {
         tfImageUrl.setText(file.getAbsolutePath());
         setIcon(lbImage, file);
     }//GEN-LAST:event_btnChooseImgActionPerformed
-
-    private void btnManagePersonsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagePersonsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnManagePersonsActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         if (selectedMovie == null) {
@@ -554,7 +575,7 @@ public class ManageMoviesPanel extends javax.swing.JPanel {
                 selectedMovie.setRedatelj(GetRedatelji());
                 selectedMovie.setGenre((Genre) cbGenre.getSelectedItem());
                 selectedMovie.setRating((Integer) spRating.getValue());
-                selectedMovie.setLength((Integer)spLength.getValue());
+                selectedMovie.setLength((Integer) spLength.getValue());
 
                 repository.updateArticle(selectedMovie);
                 moviesTableModel.setMovies(repository.selectMovies());
@@ -599,6 +620,37 @@ public class ManageMoviesPanel extends javax.swing.JPanel {
         btnAdd.setEnabled(true);
     }//GEN-LAST:event_btnClearFormActionPerformed
 
+    private void btnManageActorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageActorsActionPerformed
+
+        Window parentWindow = SwingUtilities.windowForComponent(this);
+        Frame parentFrame = null;
+        if (parentWindow instanceof Frame) {
+            parentFrame = (Frame) parentWindow;
+        }
+        PersonManagementDialog pmd = new PersonManagementDialog(parentFrame, true, selectedMovie, Occupation.GLUMAC);
+        pmd.addWindowListener(new WindowAdapter() {
+            public void windowClosed(WindowEvent e) {
+                fillForm(selectedMovie);
+            }
+        });
+        pmd.setVisible(true);
+    }//GEN-LAST:event_btnManageActorsActionPerformed
+
+    private void btnManageDirectorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageDirectorsActionPerformed
+        Window parentWindow = SwingUtilities.windowForComponent(this);
+        Frame parentFrame = null;
+        if (parentWindow instanceof Frame) {
+            parentFrame = (Frame) parentWindow;
+        }
+        PersonManagementDialog pmd = new PersonManagementDialog(parentFrame, true, selectedMovie, Occupation.REDATELJ);
+        pmd.addWindowListener(new WindowAdapter() {
+            public void windowClosed(WindowEvent e) {
+                fillForm(selectedMovie);
+            }
+        });
+        pmd.setVisible(true);
+    }//GEN-LAST:event_btnManageDirectorsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Genre;
@@ -606,7 +658,8 @@ public class ManageMoviesPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnChooseImg;
     private javax.swing.JButton btnClearForm;
     private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnManagePersons;
+    private javax.swing.JButton btnManageActors;
+    private javax.swing.JButton btnManageDirectors;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> cbGenre;
     private javax.swing.JLabel jLabel1;
@@ -823,20 +876,18 @@ public class ManageMoviesPanel extends javax.swing.JPanel {
         } else {
             lblLengthError.setText("");
         }
-//        if (lbACtors.getModel().getSize() == 0) {
-//            liActorsError.setText("X");
-//            ok = false;
-//        }
-//        else{
-//            liActorsError.setText("");
-//        }
-//        if (lbDirectors.getModel().getSize() == 0) {
-//            liDirectorsError.setText("X");
-//            ok = false;
-//        }
-//        else{
-//            liDirectorsError.setText("");
-//        }
+        if (lbACtors.getModel().getSize() == 0) {
+            liActorsError.setText("X");
+            ok = false;
+        } else {
+            liActorsError.setText("");
+        }
+        if (lbDirectors.getModel().getSize() == 0) {
+            liDirectorsError.setText("X");
+            ok = false;
+        } else {
+            liDirectorsError.setText("");
+        }
         if (cbGenre.getSelectedIndex() == 0) {
             lblGenreError.setText("X");
             ok = false;
@@ -862,5 +913,11 @@ public class ManageMoviesPanel extends javax.swing.JPanel {
             directors.add(person);
         }
         return directors;
+    }
+
+    @Override
+    public void managePersons(Movie movie) {
+        loadDirectorsModel(movie);
+        loadActorsModel(movie);
     }
 }
