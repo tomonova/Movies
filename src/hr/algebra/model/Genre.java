@@ -6,13 +6,23 @@
 package hr.algebra.model;
 
 import java.util.Objects;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  *
  * @author TomoNova
  */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(propOrder = {"idGenre", "genre"})
 public class Genre {
+
+    @XmlElement(name = "genre")
     private String genre;
+    @XmlAttribute
     private int idGenre;
 
     public String getGenre() {
@@ -27,7 +37,7 @@ public class Genre {
         return idGenre;
     }
 
-    public Genre(int idGenre,String genre) {
+    public Genre(int idGenre, String genre) {
         this.genre = genre;
         this.idGenre = idGenre;
     }
@@ -65,5 +75,5 @@ public class Genre {
         }
         return true;
     }
-    
+
 }

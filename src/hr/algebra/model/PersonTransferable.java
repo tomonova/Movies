@@ -14,8 +14,7 @@ import java.io.IOException;
  *
  * @author TomoNova
  */
-public class PersonTransferable implements Transferable {
-
+public class PersonTransferable implements Transferable{
     public static final DataFlavor PERSON_FLAVOR = new DataFlavor(Person.class, "Person");
     private static final DataFlavor[] SUPPORTED_FLAVORS = {PERSON_FLAVOR};
 
@@ -37,10 +36,9 @@ public class PersonTransferable implements Transferable {
 
     @Override
     public Object getTransferData(DataFlavor flavor) throws UnsupportedFlavorException, IOException {
-        if (isDataFlavorSupported(flavor)) {
+       if (isDataFlavorSupported(flavor)) {
             return person;
         }
-        throw new UnsupportedFlavorException(flavor); 
+        throw new UnsupportedFlavorException(flavor);        
     }
-
 }

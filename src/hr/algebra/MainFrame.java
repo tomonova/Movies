@@ -8,7 +8,9 @@ package hr.algebra;
 import hr.algebra.dal.Repository;
 import hr.algebra.dal.RepositoryFactory;
 import hr.algebra.model.Account;
+import hr.algebra.model.MovieArchive;
 import hr.algebra.model.User;
+import hr.algebra.utils.JAXBUtils;
 import hr.algebra.utils.MessageUtils;
 import java.awt.HeadlessException;
 import java.util.Optional;
@@ -28,6 +30,7 @@ public class MainFrame extends javax.swing.JFrame {
     private static final String UPLOAD_MOVIES = "Upload movies";
     private static final String EDIT_MOVIES = "Edit movies";
     private static final String FAVOURITE_MOVIES = "Favourites";
+    private static final String FILENAME = "moviearchive.xml";
 
     public MainFrame() throws HeadlessException {
     }
@@ -53,6 +56,7 @@ public class MainFrame extends javax.swing.JFrame {
         lbAccount = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        btnArchive = new javax.swing.JMenu();
         mbExit = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -67,6 +71,14 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         jMenuBar1.add(jMenu1);
+
+        btnArchive.setText("Archive");
+        btnArchive.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnArchiveMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(btnArchive);
 
         mbExit.setText("Exit");
         mbExit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -110,6 +122,16 @@ public class MainFrame extends javax.swing.JFrame {
         MessageUtils.showInformationMessage("ABOUT", "Java 1 projekt demo");
     }//GEN-LAST:event_jMenu1MouseClicked
 
+    private void btnArchiveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnArchiveMouseClicked
+        try {
+            JAXBUtils.save(new MovieArchive(repository.selectMovies()), FILENAME);
+            MessageUtils.showInformationMessage("Info", "Movies archived");
+        } catch (Exception ex) {
+            MessageUtils.showErrorMessage("ERROR", "Unable to archive movies");
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnArchiveMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -146,6 +168,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu btnArchive;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel lbAccount;

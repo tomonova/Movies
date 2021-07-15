@@ -33,7 +33,7 @@ import static javax.swing.TransferHandler.COPY;
  *
  * @author TomoNova
  */
-public class PersonManagementDialog extends javax.swing.JDialog implements PersonAddable{
+public class PersonManagementDialog extends javax.swing.JDialog implements PersonAddable {
 
     private Movie movie;
     private Repository repository;
@@ -42,11 +42,11 @@ public class PersonManagementDialog extends javax.swing.JDialog implements Perso
     private final DefaultListModel<Person> allPersonsModel = new DefaultListModel<>();
     private final DefaultListModel<Person> selectedPersonsModel = new DefaultListModel<>();
     private final Occupation occupation;
-    
-    public PersonManagementDialog(java.awt.Frame parent, boolean modal,Movie movie,Occupation occupation) {
-        super(parent,modal);
+
+    public PersonManagementDialog(java.awt.Frame parent, boolean modal, Movie movie, Occupation occupation) {
+        super(parent, modal);
         this.movie = movie;
-        this.occupation=occupation;
+        this.occupation = occupation;
         setLocationRelativeTo(null);
         initComponents();
         init();
@@ -61,6 +61,8 @@ public class PersonManagementDialog extends javax.swing.JDialog implements Perso
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        popDeleteSelected = new javax.swing.JPopupMenu();
+        popItemRemove = new javax.swing.JMenuItem();
         btnOK = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
@@ -70,6 +72,16 @@ public class PersonManagementDialog extends javax.swing.JDialog implements Perso
         lbSelectedPersons = new javax.swing.JList<>();
         lblSelectedPersons = new javax.swing.JLabel();
         lblAllPersons1 = new javax.swing.JLabel();
+
+        popItemRemove.setForeground(new java.awt.Color(0, 51, 255));
+        popItemRemove.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hr/algebra/resources/icons8-delete-trash-48.png"))); // NOI18N
+        popItemRemove.setText("Remove selected");
+        popItemRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                popItemRemoveActionPerformed(evt);
+            }
+        });
+        popDeleteSelected.add(popItemRemove);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -97,6 +109,11 @@ public class PersonManagementDialog extends javax.swing.JDialog implements Perso
         jScrollPane1.setViewportView(lbAllPersons);
 
         lbSelectedPersons.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbSelectedPersons.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lbSelectedPersonsMouseReleased(evt);
+            }
+        });
         jScrollPane2.setViewportView(lbSelectedPersons);
 
         lblSelectedPersons.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -158,8 +175,8 @@ public class PersonManagementDialog extends javax.swing.JDialog implements Perso
 
     private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
         List<Person> tempList = new ArrayList<>(selectedPersons);
-        switch(occupation){
-            case GLUMAC:               
+        switch (occupation) {
+            case GLUMAC:
                 movie.setGlumci(tempList);
                 break;
             case REDATELJ:
@@ -169,6 +186,27 @@ public class PersonManagementDialog extends javax.swing.JDialog implements Perso
         dispose();
     }//GEN-LAST:event_btnOKActionPerformed
 
+    private void lbSelectedPersonsMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbSelectedPersonsMouseReleased
+        if (evt.isPopupTrigger()) {
+            popDeleteSelected.show(this, evt.getX(), evt.getY());
+        }
+    }//GEN-LAST:event_lbSelectedPersonsMouseReleased
+
+    private void popItemRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popItemRemoveActionPerformed
+        if (lbSelectedPersons.getSelectedIndex() != -1) {
+            selectedPersons.clear();
+            int[] selectedPersonIndex = lbSelectedPersons.getSelectedIndices();
+            for (Integer index : selectedPersonIndex) {
+                selectedPersonsModel.remove(index);
+            }
+            for (int i = 0; i < lbSelectedPersons.getModel().getSize(); i++) {
+                selectedPersons.add(lbSelectedPersons.getModel().getElementAt(i));
+            }
+            selectedPersonsModel.clear();
+            selectedPersons.forEach(selectedPersonsModel::addElement);
+            lbSelectedPersons.setModel(selectedPersonsModel);
+        }
+    }//GEN-LAST:event_popItemRemoveActionPerformed
 
     private void init() {
         initRepository();
@@ -190,6 +228,8 @@ public class PersonManagementDialog extends javax.swing.JDialog implements Perso
     private javax.swing.JLabel lblAllPersons1;
     private javax.swing.JLabel lblSelectedPersons;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JPopupMenu popDeleteSelected;
+    private javax.swing.JMenuItem popItemRemove;
     // End of variables declaration//GEN-END:variables
 
     private void initRepository() {
@@ -203,14 +243,14 @@ public class PersonManagementDialog extends javax.swing.JDialog implements Perso
 
     private void loadAllPersons() {
         try {
-            switch(occupation){
-            case GLUMAC:
-                allPersons= repository.GetAllPersons(Occupation.GLUMAC);
-                break;
-            case REDATELJ:
-                allPersons= repository.GetAllPersons(Occupation.REDATELJ);
-                break;
-        }
+            switch (occupation) {
+                case GLUMAC:
+                    allPersons = repository.GetAllPersons(Occupation.GLUMAC);
+                    break;
+                case REDATELJ:
+                    allPersons = repository.GetAllPersons(Occupation.REDATELJ);
+                    break;
+            }
             allPersonsModel.clear();
             lbAllPersons.setModel(allPersonsModel);
         } catch (Exception ex) {
@@ -220,13 +260,13 @@ public class PersonManagementDialog extends javax.swing.JDialog implements Perso
     }
 
     private void loadSelectedPersons() {
-        Set<Person> persons = new TreeSet<>(); 
-        switch(occupation){
+        Set<Person> persons = new TreeSet<>();
+        switch (occupation) {
             case GLUMAC:
-                persons= new TreeSet<>(movie.getGlumci());
+                persons = new TreeSet<>(movie.getGlumci());
                 break;
             case REDATELJ:
-                persons= new TreeSet<>(movie.getRedatelj());
+                persons = new TreeSet<>(movie.getRedatelj());
                 break;
         }
 
@@ -248,7 +288,7 @@ public class PersonManagementDialog extends javax.swing.JDialog implements Perso
     }
 
     private void initLabels() {
-        switch(occupation){
+        switch (occupation) {
             case GLUMAC:
                 lblTitle.setText("Choose actors for a movie");
                 lblAllPersons1.setText("All actors");
@@ -261,6 +301,7 @@ public class PersonManagementDialog extends javax.swing.JDialog implements Perso
                 break;
         }
     }
+
     private void initDragNDrop() {
         lbAllPersons.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         lbAllPersons.setDragEnabled(true);
@@ -278,7 +319,7 @@ public class PersonManagementDialog extends javax.swing.JDialog implements Perso
         }
         return false;
     }
-    
+
     private class ExportTransferHandler extends TransferHandler {
 
         @Override

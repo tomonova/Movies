@@ -5,16 +5,19 @@
  */
 package hr.algebra.model;
 
-import static com.sun.xml.internal.ws.util.VersionUtil.compare;
 import hr.algebra.model.Enums.Occupation;
-import java.time.LocalDate;
 import java.util.Objects;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 
 /**
  *
  * @author TomoNova
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Person implements Comparable<Person>{
+    @XmlAttribute
     private int idPerson;
     private String Name;
     private Occupation occupation;

@@ -13,7 +13,6 @@ import hr.algebra.model.GenreComboBoxModel;
 import hr.algebra.model.Movie;
 import hr.algebra.model.Person;
 import hr.algebra.model.MovieTableModel;
-import hr.algebra.model.PersonManagable;
 import hr.algebra.parsers.MovieParser;
 import hr.algebra.utils.FileUtils;
 import hr.algebra.utils.IconUtils;
@@ -46,7 +45,7 @@ import javax.swing.text.JTextComponent;
  *
  * @author TomoNova
  */
-public class ManageMoviesPanel extends javax.swing.JPanel implements PersonManagable {
+public class ManageMoviesPanel extends javax.swing.JPanel  {
 
     private static final String DIR = "assets";
     private static final String NO_IMAGE = "no_image.png";
@@ -913,11 +912,5 @@ public class ManageMoviesPanel extends javax.swing.JPanel implements PersonManag
             directors.add(person);
         }
         return directors;
-    }
-
-    @Override
-    public void managePersons(Movie movie) {
-        loadDirectorsModel(movie);
-        loadActorsModel(movie);
     }
 }

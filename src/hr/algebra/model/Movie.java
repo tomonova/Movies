@@ -9,33 +9,56 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Objects;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  *
  * @author TomoNova
  */
-public class Movie implements Comparable<Movie>{
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Movie implements Comparable<Movie> {
+
     public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ISO_DATE;
+    @XmlAttribute
     private int idMovie;
+    @XmlElement(name = "title")
     private String title;
+    @XmlJavaTypeAdapter(PublishedDateAdapter.class)
+    @XmlElement(name = "publishedDate")
     private LocalDate pubDate;
+    @XmlElement(name = "releaseYear")
     private int releaseYear;
+    @XmlElement(name = "discription")
     private String description;
+    @XmlElement(name = "originalTitle")
     private String originalTitle;
+    @XmlElement(name = "picturePath")
     private String picturePath;
+    @XmlElementWrapper(name="directors")
+    @XmlElement(name = "director")
     private List<Person> redatelj;
+    @XmlElementWrapper(name="actors")
+    @XmlElement(name = "actor")
     private List<Person> glumci;
+    @XmlElement(name = "genre")
     private Genre genre;
+    @XmlElement(name = "rating")
     private int rating;
+    @XmlElement(name = "length")
     private int length;
 
     public Movie() {
     }
 
-    public Movie(int idMovie,String title, LocalDate pubDate,
+    public Movie(int idMovie, String title, LocalDate pubDate,
             int releaseYear, String description, String originalTitle,
             String picturePath, Genre genre, int rating, int length) {
-        this.idMovie=idMovie;
+        this.idMovie = idMovie;
         this.title = title;
         this.pubDate = pubDate;
         this.releaseYear = releaseYear;
@@ -47,10 +70,10 @@ public class Movie implements Comparable<Movie>{
         this.length = length;
     }
 
-    public Movie(int idMovie,String title, LocalDate pubDate, int releaseYear, String description, 
-            String originalTitle, String picturePath, List<Person> redatelj, 
+    public Movie(int idMovie, String title, LocalDate pubDate, int releaseYear, String description,
+            String originalTitle, String picturePath, List<Person> redatelj,
             List<Person> glumci, Genre genre, int rating, int length) {
-        this.idMovie=idMovie;
+        this.idMovie = idMovie;
         this.title = title;
         this.pubDate = pubDate;
         this.releaseYear = releaseYear;
@@ -64,8 +87,8 @@ public class Movie implements Comparable<Movie>{
         this.length = length;
     }
 
-    public Movie(String title, LocalDate pubDate, int releaseYear, String description, 
-            String originalTitle, String picturePath, List<Person> redatelj, 
+    public Movie(String title, LocalDate pubDate, int releaseYear, String description,
+            String originalTitle, String picturePath, List<Person> redatelj,
             List<Person> glumci, Genre genre, int rating, int length) {
         this.title = title;
         this.pubDate = pubDate;
@@ -79,8 +102,6 @@ public class Movie implements Comparable<Movie>{
         this.rating = rating;
         this.length = length;
     }
-    
-    
 
     public int getIdMovie() {
         return idMovie;
@@ -151,7 +172,7 @@ public class Movie implements Comparable<Movie>{
     }
 
     public void setRating(int rating) {
-        this.rating = rating;   
+        this.rating = rating;
     }
 
     public void setLength(int length) {
@@ -173,11 +194,10 @@ public class Movie implements Comparable<Movie>{
     public void setGlumci(List<Person> glumci) {
         this.glumci = glumci;
     }
-    
 
     @Override
     public String toString() {
-        return idMovie+" - "+title;
+        return idMovie + " - " + title;
     }
 
     @Override
@@ -218,5 +238,4 @@ public class Movie implements Comparable<Movie>{
         return Integer.compare(this.idMovie, o.idMovie);
     }
 
-    
 }
