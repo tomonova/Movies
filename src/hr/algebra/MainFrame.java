@@ -124,7 +124,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnArchiveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnArchiveMouseClicked
         try {
-            JAXBUtils.save(new MovieArchive(repository.selectMovies()), FILENAME);
+            MovieArchive ma = new MovieArchive(repository.selectMovies4XML());
+            JAXBUtils.save(ma, FILENAME);
             MessageUtils.showInformationMessage("Info", "Movies archived");
         } catch (Exception ex) {
             MessageUtils.showErrorMessage("ERROR", "Unable to archive movies");

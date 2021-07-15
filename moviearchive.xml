@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <movieArchive>
     <movies>
-        <movie idMovie="104">
+        <movie idMovie="1">
             <title>Cruella</title>
             <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2021</releaseYear>
@@ -10,56 +10,160 @@
 &lt;b&gt;„Film Cruella sadrži nekoliko scena s trepćućim svjetlima koje mogu utjecati na one koju su osjetljivi na fotoosjetljivu epilepsiju ili imaju druge fotoosjetljivosti”.&lt;/b&gt;
 </discription>
             <originalTitle>Cruella</originalTitle>
-            <picturePath>assets\9b3f3905-c3b3-4c20-b78a-9064169cf3f6.jpg</picturePath>
+            <picturePath>assets\acd54c5f-b7ac-4667-aaec-5501379200e6.jpg</picturePath>
+            <directors>
+                <director idPerson="22">
+                    <Name>Craig Gillespie</Name>
+                    <occupation>REDATELJ</occupation>
+                </director>
+            </directors>
+            <actors>
+                <actor idPerson="25">
+                    <Name>Emma Stone</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="114">
+                    <Name>Mark Strong</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="112">
+                    <Name>Emma Thompson</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+            </actors>
             <genre idGenre="0">
                 <genre>komedija, akcija</genre>
             </genre>
             <rating>12</rating>
             <length>133</length>
         </movie>
-        <movie idMovie="105">
+        <movie idMovie="2">
             <title>Black Widow</title>
             <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2020</releaseYear>
             <discription>Priča je svojevrsni prequel koji nam razotkriva misteriozni lik Natashe Romanoff, kao i njezinu prošlost i obuku u elitnom KGB-ovom programu. Kao Black Widow, Natasha se suočava s mračnim dijelovima svoje smrtnosti kada se pojavi opasna zavjera povezana s njezinim prijašnjim životom. Potaknuta silom koja se neće zaustaviti, Black Widow se mora suočiti s prošlošću i prekinuti odnose koji su postojali prije nego što je postala Osvetnica.
 </discription>
             <originalTitle>Black Widow</originalTitle>
-            <picturePath>assets\44dd9085-963c-420a-89b7-3c579d8a948b.jpg</picturePath>
+            <picturePath>assets\d14436b0-00ed-4834-85ee-aa1434b3afc1.jpg</picturePath>
+            <directors>
+                <director idPerson="5">
+                    <Name>Cate Shortland</Name>
+                    <occupation>REDATELJ</occupation>
+                </director>
+            </directors>
+            <actors>
+                <actor idPerson="76">
+                    <Name>Scarlett Johansson</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="44">
+                    <Name>Florence Pugh</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="31">
+                    <Name>Rachel Weisz</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="55">
+                    <Name>David Harbour</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+            </actors>
             <genre idGenre="0">
                 <genre>akcija, avantura, SF</genre>
             </genre>
             <rating>12</rating>
             <length>133</length>
         </movie>
-        <movie idMovie="106">
+        <movie idMovie="3">
             <title>Luka - sink</title>
             <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2021</releaseYear>
             <discription>Mladi dečko Luka doživljava nezaboravno ljeto na talijanskoj rivijeri ispunjeno hrpom sladoleda, ukusne mediteranske hrane i beskrajnom vožnjom skutera uz more. Luka dijeli ove pustolovine sa svojim novootkrivenim najboljim prijateljem, ali njihovoj beskrajnoj zabavi prijeti duboko čuvana tajna: radi se zapravo o pravim morskim čudovištima iz drugog svijeta, iz dubine oceana. 
 </discription>
             <originalTitle>Luca</originalTitle>
-            <picturePath>assets\9f911e0a-2895-404e-8c7e-0f471fc2a902.jpg</picturePath>
+            <picturePath>assets\5fa6fb5a-506a-4736-a556-eada759fe1e0.jpg</picturePath>
+            <directors>
+                <director idPerson="12">
+                    <Name>Enrico Casarosa</Name>
+                    <occupation>REDATELJ</occupation>
+                </director>
+            </directors>
+            <actors>
+                <actor idPerson="60">
+                    <Name>Bartol Rajčić</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="85">
+                    <Name>Marko Ožbolt</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="39">
+                    <Name>Lola Juran</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="77">
+                    <Name>Marko Petrić</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="109">
+                    <Name>Mirela Brekalo Popović</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+            </actors>
             <genre idGenre="0">
                 <genre>animirani</genre>
             </genre>
             <rating>0</rating>
             <length>95</length>
         </movie>
-        <movie idMovie="107">
+        <movie idMovie="4">
             <title>Ainbo: Dobri duh Amazone - sink</title>
             <publishedDate>2021-07-17</publishedDate>
             <releaseYear>2021</releaseYear>
             <discription>Ainbo je priča o djevojčici koja se rodila i odrasla u najdubljoj džungli Amazone u selu Colonia. Jednog dana otkrije da je njezina zemlja ugrožena i shvati da na svijetu postoje i drugi ljudi, osim njezinih. Koristeći pomoć svojih duhovnih vodiča, kreće na put tražeći pomoć od najmoćnije Majke Duha Amazone, Kornjače "Motelo Mama". Vođena njezinim savjetima, Ainbo je odlučna spasiti svoj raj od pohlepne i prekomjerne sječe stabala te ilegalnog iskopavanja i spasiti svoje ljude prije nego što bude prekasno. 
 </discription>
             <originalTitle>Ainbo</originalTitle>
-            <picturePath>assets\3dbed903-f6af-4315-9217-9b34659cf0b3.jpg</picturePath>
+            <picturePath>assets\bb4b3424-1ad9-4399-8f51-c350793e22cd.jpg</picturePath>
+            <directors>
+                <director idPerson="2">
+                    <Name>Richard Claus</Name>
+                    <occupation>REDATELJ</occupation>
+                </director>
+            </directors>
+            <actors>
+                <actor idPerson="33">
+                    <Name>Amanda Prenkaj</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="106">
+                    <Name>Dunja Fajdić</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="117">
+                    <Name>Ronald Žlabur</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="61">
+                    <Name>Goran Malus</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="104">
+                    <Name>Slavko Juraga</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="113">
+                    <Name>Hrvoje Klobučar</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+            </actors>
             <genre idGenre="0">
                 <genre>animirani</genre>
             </genre>
             <rating>0</rating>
             <length>84</length>
         </movie>
-        <movie idMovie="108">
+        <movie idMovie="5">
             <title>Pročišćenje: Zauvijek</title>
             <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2021</releaseYear>
@@ -67,28 +171,91 @@
 Meksički par bježi od kartela te se smješta na ranč u Teksasu gdje se nađu na udaru grupe koja i dalje nezakonito provodi Pročišćenje.
 </discription>
             <originalTitle>The Forever Purge</originalTitle>
-            <picturePath>assets\bb38ec24-99aa-432e-9623-4bd794b7139c.jpg</picturePath>
+            <picturePath>assets\2365395c-1a45-4ebb-9029-351e935786fb.jpg</picturePath>
+            <directors>
+                <director idPerson="11">
+                    <Name>Everardo Gout</Name>
+                    <occupation>REDATELJ</occupation>
+                </director>
+            </directors>
+            <actors>
+                <actor idPerson="73">
+                    <Name>Will Patton</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="95">
+                    <Name>Ana de la Reguera</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="108">
+                    <Name>Josh Lucas</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="58">
+                    <Name>Cassidy Freeman</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+            </actors>
             <genre idGenre="0">
                 <genre>horor, akcija</genre>
             </genre>
             <rating>15</rating>
             <length>103</length>
         </movie>
-        <movie idMovie="109">
+        <movie idMovie="6">
             <title>Mjesto tišine 2</title>
             <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2021</releaseYear>
-            <discription>Mjesto tišine 2 se nastavlja na kraj prvog dijela. Nakon što im je uništen siguran dom, Evelyn (Emily Blunt) i njezino troje djece kreću dalje u nepoznati svijet, u kojem čak i najmanji zvuk znači smrt. Pokušavaju pronaći druge preživjele i proširiti svoja nova saznanja o tome kako ubiti ta stvorenja.
-</discription>
+            <discription>Mjesto tišine 2 se nastavlja na kraj prvog dijela. Nakon što im je uništen siguran dom, Evelyn (Emily Blunt) i njezino troje djece kreću dalje u nepoznati svijet, u kojem čak i najmanji zvuk znači smrt. Pokušavaju pronaći druge preživjele i proširiti svoja nova saznanja o tome kako ubiti ta stvorenja.</discription>
             <originalTitle>A Quiet Place: Part II</originalTitle>
-            <picturePath>assets\f6be01d7-2a31-4391-9af0-13bc388eaaaa.jpg</picturePath>
+            <picturePath>assets\34a76a0f-bd7b-4df5-964b-43de2c76fe54.jpg</picturePath>
+            <directors>
+                <director idPerson="11">
+                    <Name>Everardo Gout</Name>
+                    <occupation>REDATELJ</occupation>
+                </director>
+                <director idPerson="13">
+                    <Name>Joel Crawford</Name>
+                    <occupation>REDATELJ</occupation>
+                </director>
+                <director idPerson="15">
+                    <Name>John Krasinski</Name>
+                    <occupation>REDATELJ</occupation>
+                </director>
+            </directors>
+            <actors>
+                <actor idPerson="95">
+                    <Name>Ana de la Reguera</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="67">
+                    <Name>Barbara Nola</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="63">
+                    <Name>Callan Mulvey</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="62">
+                    <Name>Cillian Murphy</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="82">
+                    <Name>Emily Blunt</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="40">
+                    <Name>Noah Jupe</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+            </actors>
             <genre idGenre="0">
                 <genre>horor, triler</genre>
             </genre>
             <rating>12</rating>
             <length>97</length>
         </movie>
-        <movie idMovie="110">
+        <movie idMovie="7">
             <title>Croods: Novo doba - sink</title>
             <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2020</releaseYear>
@@ -97,97 +264,330 @@ Animiranu avanturu režirao je Joel Crafword koji je i sam glumio u mnogim animi
 
 Croodsi traže novo mjesto za život te putuju svijetom u potrazi za sigurnijim mjestom za svoj dom. U svojoj potrazi nailaze na idilično mjesto okruženo zidinama i s jako puno hrane. No tamo nailaze i na novu, puno napredniju obitelj, koja ih se želi riješiti što prije.
 Nova obitelj je daleko razvijenija od Croodsa, žive u kući na drvetu, znaju uzgajati hranu, imaju WC, lift i mnoge druge izume koje Croodi nisu nikada vidjeli. 
-No neočekivani obrat natjerat će obje obitelji da surađuju i krenu na pustolovinu života s druge strane zidina. Na tom putu će shvatiti da ih ipak veže puno stvari te da mogu premostiti razlike koje ih razdvajaju.</discription>
+No neočekivani obrat natjerat će obje obitelji da surađuju i krenu na pustolovinu života s druge strane zidina. Na tom putu će shvatiti da ih ipak veže puno stvari te da mogu premostiti razlike koje ih razdvajaju.
+</discription>
             <originalTitle>The Croods: A New Age</originalTitle>
-            <picturePath>assets\4f87d7ac-2f91-4e92-84c5-a1b0992d03b7.jpg</picturePath>
+            <picturePath>assets\fb864f32-0cc1-4ec9-884d-a4474cb1bbbe.jpg</picturePath>
+            <directors>
+                <director idPerson="13">
+                    <Name>Joel Crawford</Name>
+                    <occupation>REDATELJ</occupation>
+                </director>
+            </directors>
+            <actors>
+                <actor idPerson="110">
+                    <Name>Frano Mašković</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="56">
+                    <Name>Nataša Dorčić</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="125">
+                    <Name>Jelena Vukmirica Makovičić</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="89">
+                    <Name>Filip Križan</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="32">
+                    <Name>Marko Cindrić</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="109">
+                    <Name>Mirela Brekalo Popović</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+            </actors>
             <genre idGenre="0">
                 <genre>animirani</genre>
             </genre>
             <rating>0</rating>
             <length>95</length>
         </movie>
-        <movie idMovie="111">
+        <movie idMovie="8">
             <title>Space Jam: Nova legenda - titl</title>
             <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2021</releaseYear>
             <discription>&lt;div style="text-align: justify;"&gt;Ovo transformacijsko putovanje otkriva koliko će daleko neki roditelji ići kako bi se povezali sa svojom djecom. LeBron i njegov sin Dom zarobljeni su u digitalnom prostoru i LeBron ih mora odvesti kući na sigurno,  vodeći  sa sobom i Bugsa, Lolu i cijelu bandu notorno nediscipliniranih Looneyja Tunesa. U filmu se pojavljuju i mnoge profesionalne košarkaške zvijezde u ulogama u kojima ih do sada niste mogli vidjeti. &lt;/div&gt;
 </discription>
             <originalTitle>Space Jam: A New Legacy</originalTitle>
-            <picturePath>assets\b21438e4-e861-4807-8b1c-5b323132e8d0.jpg</picturePath>
+            <picturePath>assets\bc921217-7a41-4d01-9ffb-79870fad2f59.jpg</picturePath>
+            <directors>
+                <director idPerson="23">
+                    <Name>Malcolm D. Lee</Name>
+                    <occupation>REDATELJ</occupation>
+                </director>
+            </directors>
+            <actors>
+                <actor idPerson="71">
+                    <Name>LeBron James</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="38">
+                    <Name>Don Cheadle</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="129">
+                    <Name>Khris Davis</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="93">
+                    <Name>Sonequa Martin-Green</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+            </actors>
             <genre idGenre="0">
                 <genre>igrano - animirana avantura</genre>
             </genre>
             <rating>0</rating>
             <length>117</length>
         </movie>
-        <movie idMovie="112">
+        <movie idMovie="9">
             <title>Velika bijela psina</title>
             <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2021</releaseYear>
             <discription>Zabavan let do udaljenog atola pretvara se u noćnu moru za pet putnika kada im se hidroavion uništi u čudnoj nesreći i kada se nađu zarobljeni na splavi, 100 milja od obale dok morski psi vrebaju ispod površine.</discription>
             <originalTitle>Great White</originalTitle>
-            <picturePath>assets\c9d9d345-9d01-4189-9eb9-8baa9b176c22.jpg</picturePath>
+            <picturePath>assets\36b59671-20b4-4bb1-aa79-09f1c3204999.jpg</picturePath>
+            <directors>
+                <director idPerson="4">
+                    <Name>Martin Wilson</Name>
+                    <occupation>REDATELJ</occupation>
+                </director>
+            </directors>
+            <actors>
+                <actor idPerson="26">
+                    <Name>Katrina Bowden</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="48">
+                    <Name>Tatjana Marjanović</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="120">
+                    <Name>Kimie Tsukakoshi</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="50">
+                    <Name> Aaron Jakubenko</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+            </actors>
             <genre idGenre="0">
                 <genre>horor</genre>
             </genre>
             <rating>15</rating>
             <length>91</length>
         </movie>
-        <movie idMovie="113">
+        <movie idMovie="10">
             <title>Paulovo posljednje putovanje</title>
             <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2020</releaseYear>
             <discription>U bliskoj budućnosti ekološkog pustošenja, tajanstveni Crveni mjesec, pretjerano iskorištavan zbog svoje energije, naglo mijenja kurs i kreće ravno na Zemlju. Paul W.R., jedini astronaut sposoban spasiti čovječanstvo, nestaje prije početka svoje misije. Paul je naime otkrio tajnu Crvenog mjeseca i zašto ga se ne smije uništiti ... Nemilosrdno lovljen, Paul nailazi na Elmu, tinejdžericu eksplozivne naravi, koji ga slijedi u potrazi za istinom.
 </discription>
             <originalTitle>The Last Journey of Paul W. R.</originalTitle>
-            <picturePath>assets\35f3c925-ab3e-4342-8eec-fa9c8d4633f8.jpg</picturePath>
+            <picturePath>assets\eba25078-ab36-4dc0-8543-4e63e7f81300.jpg</picturePath>
+            <directors>
+                <director idPerson="3">
+                    <Name>Romain Quirot</Name>
+                    <occupation>REDATELJ</occupation>
+                </director>
+            </directors>
+            <actors>
+                <actor idPerson="51">
+                    <Name>Hugo Becker</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="118">
+                    <Name>Jean Reno</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="90">
+                    <Name>Paul Hamy</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+            </actors>
             <genre idGenre="0">
                 <genre>SF, avantura</genre>
             </genre>
             <rating>12</rating>
             <length>87</length>
         </movie>
-        <movie idMovie="114">
+        <movie idMovie="11">
             <title>Čuvaj me s leđa 2</title>
             <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2021</releaseYear>
             <discription>Drugi dio akcijske komedije nastavlja se četiri godine nakon događaja iz prvog dijela. Nakon što su plaćeni ubojica Darius Kincaid (Samuel L. Jackson) i tjelohranitelj Michael Bryce (Ryan Reynolds), koji su najveći protivnici, morali surađivati, tjelohranitelj sada mora napraviti prisilnu pauzu zbog stresa i noćnih mora. Kad se napokon navikne na ideju da više neće biti tjelohranitelj i koristiti oružje, prije atentata ga spašava supruga ubojice Sonia Kincaid (Salma Hayek) koja ga je tražila kako bi joj pomogao spasiti njezina supruga. Budući da Bryceu nije dopušteno koristiti vatreno oružje ili bilo koje drugo oružje, morat će spasiti Dariusa svojom duhovitošću i inteligencijom.</discription>
             <originalTitle>Hitman’s Wife’s Bodyguard</originalTitle>
-            <picturePath>assets\37427a9c-77f3-4d06-88f3-61da53c4c710.jpg</picturePath>
+            <picturePath>assets\c0315a21-8817-4f9d-93be-37a25366b83d.jpg</picturePath>
+            <directors>
+                <director idPerson="9">
+                    <Name>Patrick Hughes</Name>
+                    <occupation>REDATELJ</occupation>
+                </director>
+            </directors>
+            <actors>
+                <actor idPerson="27">
+                    <Name>Ryan Reynolds</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="66">
+                    <Name>Samuel L. Jackson</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="49">
+                    <Name>Salma Hayek</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="42">
+                    <Name>Morgan Freeman</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="130">
+                    <Name>Antonio Banderas</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="47">
+                    <Name>Tom Hopper</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="29">
+                    <Name>Frank Grillo</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="69">
+                    <Name>Richard E. Grant</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+            </actors>
             <genre idGenre="0">
                 <genre>akcija, komedija</genre>
             </genre>
             <rating>15</rating>
             <length>116</length>
         </movie>
-        <movie idMovie="115">
+        <movie idMovie="12">
             <title>Brzi i žestoki 9</title>
             <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2021</releaseYear>
             <discription>Dom Toretto (Dom) mirno živi sa svojom ženom Letty (Michelle Rodrigez) i sinom, malim Brianom, ali je svjestan da opasnost vreba. Ovog puta, opasnost će natjerati Doma da se suoči sa svojom prošlosti ako želi spasiti najbliže. Dom još jednom mora okupiti Brze i žestoke kako bi se obranili od nove opasnosti u obliku profesionalnog ubojice Jacoba (John Cena) koji je ujedno i Domov brat. Napeta akcijska avantura odvija se od Londona preko Središnje Amerike do Edinburgha. </discription>
             <originalTitle>F9</originalTitle>
-            <picturePath>assets\5e30101b-c8c0-4179-bcdf-e5f6338e1c26.jpg</picturePath>
+            <picturePath>assets\2a4d1aec-087b-49c2-8efb-fd514502376c.jpg</picturePath>
+            <directors>
+                <director idPerson="8">
+                    <Name>Justin Lin</Name>
+                    <occupation>REDATELJ</occupation>
+                </director>
+            </directors>
+            <actors>
+                <actor idPerson="97">
+                    <Name>Vin Diesel</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="74">
+                    <Name>Michelle Rodriguez</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="98">
+                    <Name>Tyrese Gibson</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="101">
+                    <Name>Chris “Ludacris” Bridges</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="105">
+                    <Name>John Cena</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="91">
+                    <Name>Jordana Brewster</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="86">
+                    <Name>Nathalie Emmanuel</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="92">
+                    <Name>Sung Kang</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="45">
+                    <Name>Helen Mirren</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="88">
+                    <Name>Charlize Theron</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+            </actors>
             <genre idGenre="0">
                 <genre>akcija, triler</genre>
             </genre>
             <rating>12</rating>
             <length>142</length>
         </movie>
-        <movie idMovie="116">
+        <movie idMovie="13">
             <title>Space Jam: Nova legenda - sink</title>
             <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2021</releaseYear>
             <discription>&lt;div style="text-align: justify;"&gt;Ovo transformacijsko putovanje otkriva koliko će daleko neki roditelji ići kako bi se povezali sa svojom djecom. LeBron i njegov sin Dom zarobljeni su u digitalnom prostoru i LeBron ih mora odvesti kući na sigurno,  vodeći  sa sobom i Bugsa, Lolu i cijelu bandu notorno nediscipliniranih Looneyja Tunesa. U filmu se pojavljuju i mnoge profesionalne košarkaške zvijezde u ulogama u kojima ih do sada niste mogli vidjeti. &lt;/div&gt;
 </discription>
             <originalTitle>Space Jam: A New Legacy</originalTitle>
-            <picturePath>assets\eac03255-f5a8-429e-8ae7-a72fcfe02704.jpg</picturePath>
+            <picturePath>assets\f1caf046-245a-4fd5-9b86-4fd1f1c6c678.jpg</picturePath>
+            <directors>
+                <director idPerson="23">
+                    <Name>Malcolm D. Lee</Name>
+                    <occupation>REDATELJ</occupation>
+                </director>
+            </directors>
+            <actors>
+                <actor idPerson="37">
+                    <Name>Slavko Sobin</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="78">
+                    <Name>Mario Petreković</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="132">
+                    <Name>Božo Kelava</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="117">
+                    <Name>Ronald Žlabur</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="41">
+                    <Name>Franka Batelić</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="124">
+                    <Name>Dražen Bratulić</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="30">
+                    <Name>Viktorija Rađa</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="94">
+                    <Name>Dino Rađa</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="115">
+                    <Name>Vlatko Štampar</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+            </actors>
             <genre idGenre="0">
                 <genre>igrano - animirana avantura</genre>
             </genre>
             <rating>0</rating>
             <length>117</length>
         </movie>
-        <movie idMovie="117">
+        <movie idMovie="14">
             <title>Dani gnjeva</title>
             <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2021</releaseYear>
@@ -195,42 +595,126 @@ No neočekivani obrat natjerat će obje obitelji da surađuju i krenu na pustolo
 Kao što to uvijek biva u Ritchijevim inače zanatski perfektnim akcijama, i ovaj film obiluje uvrnutim detaljima i epskim dijalozima koji će se prepričavati godinama.
 </discription>
             <originalTitle>Wrath of Man</originalTitle>
-            <picturePath>assets\aaf70775-eb62-4b33-9344-3dc1c71fdcb6.jpg</picturePath>
+            <picturePath>assets\d846e2c3-dc03-4d67-ba7e-bf42bc4a91d3.jpg</picturePath>
+            <directors>
+                <director idPerson="14">
+                    <Name>Guy Ritchie</Name>
+                    <occupation>REDATELJ</occupation>
+                </director>
+            </directors>
+            <actors>
+                <actor idPerson="53">
+                    <Name>Jason Statham</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="83">
+                    <Name>Scott Eastwood</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="57">
+                    <Name>Josh Hartnett</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="96">
+                    <Name>Holt McCallany</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="99">
+                    <Name>Laz Alonso</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+            </actors>
             <genre idGenre="0">
                 <genre>akcija, triler</genre>
             </genre>
             <rating>15</rating>
             <length>118</length>
         </movie>
-        <movie idMovie="118">
+        <movie idMovie="15">
             <title>Dok nas smrt ne rastavi</title>
             <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2021</releaseYear>
             <discription>Emma (Megan Fox) se nalazi u ustajalom braku s Markom koji ju za 10. godišnjicu braka vodi do njihove osamljene kućice na jezeru na romantičnu večeru. Sljedećeg jutra nađe se vezana lisicama za Markovo mrtvo tijelo. Ne znajući tko je ubio Marka, zarobljena i izolirana u gluho doba zime, Emma saznaje da je ovo samo početak Markova uvrnutog plana. Kako bi preživjela mora se boriti protiv unajmljenih ubojica koji je žele ubiti.
 </discription>
             <originalTitle>Till Death</originalTitle>
-            <picturePath>assets\e3c15540-a49d-420c-b150-55c3f61f9cc4.jpg</picturePath>
+            <picturePath>assets\d0f6ad91-c607-4e33-a283-5d159f1d6ab5.jpg</picturePath>
+            <directors>
+                <director idPerson="7">
+                    <Name>S.K. Dale</Name>
+                    <occupation>REDATELJ</occupation>
+                </director>
+            </directors>
+            <actors>
+                <actor idPerson="70">
+                    <Name>Megan Fox</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="63">
+                    <Name>Callan Mulvey</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="111">
+                    <Name>Eoin Macken</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="35">
+                    <Name>Aml Ameen</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+            </actors>
             <genre idGenre="0">
                 <genre>horor, triler</genre>
             </genre>
             <rating>15</rating>
             <length>90</length>
         </movie>
-        <movie idMovie="119">
+        <movie idMovie="16">
             <title>Raya i posljednji zmaj - sink</title>
             <publishedDate>2021-07-17</publishedDate>
             <releaseYear>2021</releaseYear>
             <discription>Davno, u čarobnom gradu Kumandra, ljudi i zmajevi živjeli su zajedno u slozi. Ali kada su zle sile poznate kao Druuni postale prijetnja za sve, zmajevi su žrtvujući sebe, spasili čovječanstvo. Sada, 500 godina kasnije, ta ista čudovišta su se vratila i na ratnici Rayi je da pronađe posljednjeg zmaja kako bi zauvijek zaustavili Druune. Međutim, tijekom svog putovanja Raya će naučiti da će joj za spas svijeta trebati ipak nešto više od zmajeve magije – neophodno je povjerenje i timski duh prije svega.
 </discription>
             <originalTitle>Raya and the Last Dragon</originalTitle>
-            <picturePath>assets\f0742734-eafa-4f82-acb6-73b910b3c021.jpg</picturePath>
+            <picturePath>assets\4f86cee7-782c-4b5b-9ff7-9dfd62aa15d2.jpg</picturePath>
+            <directors>
+                <director idPerson="16">
+                    <Name>Don Hall</Name>
+                    <occupation>REDATELJ</occupation>
+                </director>
+                <director idPerson="17">
+                    <Name>Carlos López Estrada</Name>
+                    <occupation>REDATELJ</occupation>
+                </director>
+            </directors>
+            <actors>
+                <actor idPerson="127">
+                    <Name>Tara Thaller</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="84">
+                    <Name>Krešimir Mikić</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="54">
+                    <Name>Noa Zelenko</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="64">
+                    <Name>Petra Svrtan</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="67">
+                    <Name>Barbara Nola</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+            </actors>
             <genre idGenre="0">
                 <genre>animirani</genre>
             </genre>
             <rating>0</rating>
             <length>115</length>
         </movie>
-        <movie idMovie="120">
+        <movie idMovie="17">
             <title>Prizivanja 3: Kriv je Sotona</title>
             <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2021</releaseYear>
@@ -238,42 +722,118 @@ Kao što to uvijek biva u Ritchijevim inače zanatski perfektnim akcijama, i ova
 Patrick Wilson i Vera Farmiga se vraćaju kao Ed i Lorraine Warren, ovog puta pod redateljskom palicom Michaela Chavesa.  
 </discription>
             <originalTitle>The Conjuring: The Devil Made Me Do It</originalTitle>
-            <picturePath>assets\d2f38a08-e281-4783-978d-6ece9dd64134.jpg</picturePath>
+            <picturePath>assets\62648c51-2e5b-45f5-8627-243228557a91.jpg</picturePath>
+            <directors>
+                <director idPerson="19">
+                    <Name>Michael Chaves</Name>
+                    <occupation>REDATELJ</occupation>
+                </director>
+            </directors>
+            <actors>
+                <actor idPerson="133">
+                    <Name>Patrick Wilson</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="46">
+                    <Name>Vera Farmiga</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="122">
+                    <Name>Ruairi O’Connor</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="28">
+                    <Name>Sarah Catherine Hook</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="65">
+                    <Name>Julian Hilliard</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+            </actors>
             <genre idGenre="0">
                 <genre>horor, triler</genre>
             </genre>
             <rating>15</rating>
             <length>112</length>
         </movie>
-        <movie idMovie="121">
+        <movie idMovie="18">
             <title>Čarobni prolaz - sink</title>
             <publishedDate>2021-07-17</publishedDate>
             <releaseYear>2020</releaseYear>
             <discription>Uzbudljiva i živopisna avantura odvest će vašu obitelj u morske dubine, u krajolike očaravajuće ljepote, ali i velike opasnosti. Priča prati mladog dupina bujne mašte i njegovog najboljeg prijatelja koji neprestano otkrivaju nova mjesta za istraživanje - pronalaze brojne čarobne predmete, za koje nitko ne vjeruje da su zapravo stvarni. Jednog dana otkriju čarobni prolaz koji ih može pretvoriti u ono što žele postati. Nažalost, jegulje su otkrile njihovu tajnu i odlučili su prolaz iskoristiti za preuzimanje Ribljeg grada. Kako priča napreduje, dupini se moraju utrkivati s vremenom kako bi spasili svoj grad. S nizom ljupkih detalja, odličnim glumcima koji su sinkronizirali film i, dakako, savršenom najmodernijom tehnikom animacije, ovaj film pravo je uživanje za oči i osjećaje. 
 </discription>
             <originalTitle>Magic Arch</originalTitle>
-            <picturePath>assets\f604cb2d-d2b8-40fb-ad6b-1584882366a4.jpg</picturePath>
+            <picturePath>assets\b30e993a-ec79-4a4c-a93e-f11e464b9b9c.jpg</picturePath>
+            <directors>
+                <director idPerson="18">
+                    <Name>Vasiliy Rovenskiy  </Name>
+                    <occupation>REDATELJ</occupation>
+                </director>
+            </directors>
+            <actors>
+                <actor idPerson="107">
+                    <Name>Ivan Đuričić</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="24">
+                    <Name>Marko Makovičić</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="121">
+                    <Name>Mladen Vasari</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="59">
+                    <Name>Lovro Juraga</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="79">
+                    <Name>Ana Čapalija</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+            </actors>
             <genre idGenre="0">
                 <genre>animirani</genre>
             </genre>
             <rating>0</rating>
             <length>84</length>
         </movie>
-        <movie idMovie="122">
+        <movie idMovie="19">
             <title>Tajne Azurne obale</title>
             <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2021</releaseYear>
             <discription>Kolovoz je 1970. Kao i svake godine, milijarder Claude Tranchant i njegova supruga Eliane borave u raskošnoj vili u Saint-Tropezu. Čini se da im ništa ne može pokvariti dobro raspoloženje. No, uvjeren da je žrtva pokušaja ubojstva, Tranchant poziva svog prijatelja Chiraca da angažira usluge najboljeg inspektora iz Pariza. No u srcu ljeta dostupan je samo inspektor Boulin, koji je nekoliko tjedana udaljen od mirovine. On će vrlo osebujnim metodama slijediti  trag uznemirivača.
 </discription>
             <originalTitle>Do You Do You Saint-Tropez</originalTitle>
-            <picturePath>assets\b8ac48e9-2899-4e33-a977-25b5132b279c.jpg</picturePath>
+            <picturePath>assets\9daa1da7-bbad-4009-a524-606fc723d8ec.jpg</picturePath>
+            <directors>
+                <director idPerson="1">
+                    <Name>Nicolas Benamou</Name>
+                    <occupation>REDATELJ</occupation>
+                </director>
+            </directors>
+            <actors>
+                <actor idPerson="128">
+                    <Name>Gérard Depardieu</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="80">
+                    <Name> Rossy de Palma</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="87">
+                    <Name> Christian Clavier </Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+            </actors>
             <genre idGenre="0">
                 <genre>komedija</genre>
             </genre>
             <rating>12</rating>
             <length>90</length>
         </movie>
-        <movie idMovie="123">
+        <movie idMovie="20">
             <title>Vukodlak među nama</title>
             <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2021</releaseYear>
@@ -281,41 +841,121 @@ Patrick Wilson i Vera Farmiga se vraćaju kao Ed i Lorraine Warren, ovog puta po
 Kako se broj tijela povećava, na Finnu je da preuzme ulogu junaka i otkrije što ili tko smanjuje broj stanovnika u Beaverfieldu.
 </discription>
             <originalTitle>Werewolves Within</originalTitle>
-            <picturePath>assets\985a582b-c028-439a-8046-e263675cf729.jpg</picturePath>
+            <picturePath>assets\b0d95969-6b28-4c93-8731-b4975ad4be6b.jpg</picturePath>
+            <directors>
+                <director idPerson="6">
+                    <Name>Josh Ruben</Name>
+                    <occupation>REDATELJ</occupation>
+                </director>
+            </directors>
+            <actors>
+                <actor idPerson="34">
+                    <Name>Sam Richardson</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="119">
+                    <Name>Milana Vayntrub</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="123">
+                    <Name>George Basil</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+            </actors>
             <genre idGenre="0">
                 <genre>horor, komedija</genre>
             </genre>
             <rating>15</rating>
             <length>97</length>
         </movie>
-        <movie idMovie="124">
+        <movie idMovie="21">
             <title>Krstarenje džunglom</title>
             <publishedDate>2021-07-28</publishedDate>
             <releaseYear>2020</releaseYear>
             <discription>Lily putuje iz Londona u džunglu Amazone gdje angažira Franka da je vozi u svom brodiću niz rijeku. Lily je odlučna otkriti drevno stablo s nevjerojatnim ljekovitim svojstvima koje imaju moć promijeniti budućnosti medicine. U svojoj potrazi, ovaj dvojac će se susresti s bezbroj opasnosti i natprirodnih sila u varljivoj ljepoti bujne prašume. 
 </discription>
             <originalTitle>Jungle Cruise</originalTitle>
-            <picturePath>assets\09558de1-7ba0-40df-9e18-9a3112ce41ed.jpg</picturePath>
+            <picturePath>assets\cc81b9c5-80af-4667-81b8-025a6675cc37.jpg</picturePath>
+            <directors>
+                <director idPerson="21">
+                    <Name>Jaume Collet-Serra</Name>
+                    <occupation>REDATELJ</occupation>
+                </director>
+            </directors>
+            <actors>
+                <actor idPerson="134">
+                    <Name>Dwayne Johnson</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="82">
+                    <Name>Emily Blunt</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="100">
+                    <Name>Edgar Ramirez</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="126">
+                    <Name>Jack Whitehall</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="103">
+                    <Name>Jesse Plemons</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="75">
+                    <Name>Paul Giamatti</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+            </actors>
             <genre idGenre="0">
                 <genre>akcija, avantura, komedija</genre>
             </genre>
             <rating>12</rating>
             <length>127</length>
         </movie>
-        <movie idMovie="125">
+        <movie idMovie="22">
             <title>Ledena cesta</title>
             <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2021</releaseYear>
             <discription>Nakon nesreće u udaljenom rudniku dijamanata na sjeveru Kanade, vozač kamiona na ledu pokreće nemoguću misiju spašavanja koja će ih voditi oceanima leda, sve u nadi kako će stići na vrijeme i spasiti zatrpane radnike.</discription>
             <originalTitle>Ice Road</originalTitle>
-            <picturePath>assets\f485cada-9eb9-4756-8c8d-432748aa0e75.jpg</picturePath>
+            <picturePath>assets\2762a884-9965-4638-9332-515a3e4705d9.jpg</picturePath>
+            <directors>
+                <director idPerson="20">
+                    <Name>Jonathan Hensleigh</Name>
+                    <occupation>REDATELJ</occupation>
+                </director>
+            </directors>
+            <actors>
+                <actor idPerson="131">
+                    <Name>Liam Neeson</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="96">
+                    <Name>Holt McCallany</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="43">
+                    <Name>Laurence Fishburne</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="72">
+                    <Name>Amber Midthunder</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="52">
+                    <Name>Matt McCoy</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+            </actors>
             <genre idGenre="0">
                 <genre>akcija, triler</genre>
             </genre>
             <rating>12</rating>
             <length>108</length>
         </movie>
-        <movie idMovie="126">
+        <movie idMovie="23">
             <title>Tom i Jerry - sink</title>
             <publishedDate>2021-07-17</publishedDate>
             <releaseYear>2021</releaseYear>
@@ -323,25 +963,44 @@ Kako se broj tijela povećava, na Finnu je da preuzme ulogu junaka i otkrije št
 Slijedi naravno epska bitka mačke i miša koja prijeti uništenjem njezine karijere, vjenčanja, a moguće i samog hotela. No uskoro se pojavljuje još veći problem: zlobni i  ambiciozni djelatnik koji se urotio protiv njih troje.
 </discription>
             <originalTitle>Tom &amp; Jerry</originalTitle>
-            <picturePath>assets\0de6b780-4677-433b-be20-1695165104b8.jpg</picturePath>
+            <picturePath>assets\331868b0-c083-4e19-8963-132fd57c1d9c.jpg</picturePath>
+            <directors>
+                <director idPerson="10">
+                    <Name>Tim Story</Name>
+                    <occupation>REDATELJ</occupation>
+                </director>
+            </directors>
+            <actors>
+                <actor idPerson="36">
+                    <Name>Dajana Čuljak</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="81">
+                    <Name>Jan Kerekeš</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="116">
+                    <Name>Dražen Čuček</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="32">
+                    <Name>Marko Cindrić</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="102">
+                    <Name>Ivan Colarić</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+                <actor idPerson="68">
+                    <Name>Mirna Medaković</Name>
+                    <occupation>GLUMAC</occupation>
+                </actor>
+            </actors>
             <genre idGenre="0">
                 <genre>animacija, avantura, komedija</genre>
             </genre>
             <rating>0</rating>
             <length>101</length>
-        </movie>
-        <movie idMovie="127">
-            <title>test</title>
-            <publishedDate>2021-10-10</publishedDate>
-            <releaseYear>2019</releaseYear>
-            <discription>asdfasdf</discription>
-            <originalTitle>testis</originalTitle>
-            <picturePath>assets\e88d642f-47e9-4148-8675-d23c0de49aea.jpg</picturePath>
-            <genre idGenre="0">
-                <genre>horor, komedija</genre>
-            </genre>
-            <rating>0</rating>
-            <length>123</length>
         </movie>
     </movies>
 </movieArchive>

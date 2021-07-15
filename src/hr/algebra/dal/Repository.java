@@ -44,4 +44,5 @@ public interface Repository {
     public void createMovie(Movie movie) throws Exception;
     public void updateArticle(Movie selectedMovie) throws Exception;
     public Set<Person> GetAllPersons(Occupation occupation) throws Exception;
+    public List<Movie> selectMovies4XML() throws Exception;
 }

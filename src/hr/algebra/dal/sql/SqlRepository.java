@@ -734,4 +734,45 @@ public class SqlRepository implements Repository {
             return persons;
         }
     }
+
+    @Override
+    public List<Movie> selectMovies4XML() throws Exception {
+        List<Movie> moviesTemp = new ArrayList<>();
+        List<Movie> movies = new ArrayList<>();
+        Properties appProps = new Properties();
+        appProps.load(new FileInputStream(propFilePath));
+        DataSource ds = DataSourceSingleton.getInstance(
+                appProps.getProperty(SERVER_NAME),
+                appProps.getProperty(DATABASE_NAME),
+                Integer.parseInt(appProps.getProperty(PORT)),
+                appProps.getProperty(USER),
+                appProps.getProperty(PASSWORD));
+        try (Connection con = ds.getConnection();
+                CallableStatement stmt = con.prepareCall(GET_MOVIES);
+                ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                moviesTemp.add(new Movie(
+                        rs.getInt(ID_MOVIE),
+                        rs.getString(TITLE),
+                        LocalDate.parse(rs.getString(PUBLISHED_DATE), Movie.DATE_FORMATTER),
+                        Integer.parseInt(rs.getString(RELEASE_YEAR)),
+                        rs.getString(DESCRIPTION),
+                        rs.getString(ORIGINAL_TITLE),
+                        rs.getString(PICTURE_PATH),
+                        new Genre(rs.getString(GENRE)),
+                        Integer.parseInt(rs.getString(RATING)),
+                        Integer.parseInt(rs.getString(LENGTH))));
+            }
+            
+            for (Movie movy : moviesTemp) {
+                List<Person> actors=getMoviePersons(movy.getIdMovie(), Occupation.GLUMAC);
+                List<Person> directors=getMoviePersons(movy.getIdMovie(), Occupation.REDATELJ);
+                movy.setGlumci(actors);
+                movy.setRedatelj(directors);
+                movies.add(movy);
+            }
+        }
+                 return movies;
+    }
 }
