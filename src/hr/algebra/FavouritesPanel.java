@@ -191,16 +191,18 @@ public class FavouritesPanel extends javax.swing.JPanel implements MovieAddable 
     }//GEN-LAST:event_lbFavouriteMoviesMouseReleased
 
     private void popItemRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popItemRemoveActionPerformed
-        try {
-            int[] selectedMoviesIndex = lbFavouriteMovies.getSelectedIndices();
-            Set<Movie> selectedMovies = extractSelectedMovies(selectedMoviesIndex);
-            repository.DeleteFavouriteMovies(user,selectedMovies);
-            loadFavourites(user);
-            loadFavouritesModel();
-            lblStatus.setText("<html><p>Favorites</p><br><p>removed</p></html>");
-        } catch (Exception ex) {
-            MessageUtils.showErrorMessage("ERROR", "Favorites not removed" + ex.getMessage());
-            Logger.getLogger(FavouritesPanel.class.getName()).log(Level.SEVERE, null, ex);
+        if (lbFavouriteMovies.getSelectedIndex()!=-1) {
+            try {
+                int[] selectedMoviesIndex = lbFavouriteMovies.getSelectedIndices();
+                Set<Movie> selectedMovies = extractSelectedMovies(selectedMoviesIndex);
+                repository.DeleteFavouriteMovies(user, selectedMovies);
+                loadFavourites(user);
+                loadFavouritesModel();
+                lblStatus.setText("<html><p>Favorites</p><br><p>removed</p></html>");
+            } catch (Exception ex) {
+                MessageUtils.showErrorMessage("ERROR", "Favorites not removed" + ex.getMessage());
+                Logger.getLogger(FavouritesPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_popItemRemoveActionPerformed
 

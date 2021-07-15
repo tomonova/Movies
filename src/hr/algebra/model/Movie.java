@@ -7,6 +7,7 @@ package hr.algebra.model;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -53,6 +54,8 @@ public class Movie implements Comparable<Movie> {
     private int length;
 
     public Movie() {
+        this.glumci=new ArrayList<Person>();
+        this.redatelj=new ArrayList<Person>();
     }
 
     public Movie(int idMovie, String title, LocalDate pubDate,

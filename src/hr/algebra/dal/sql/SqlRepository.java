@@ -280,9 +280,7 @@ public class SqlRepository implements Repository {
             try {
                 int idMovie = insertMovie(m);
                 connectPersonsAndMovie(m, idMovie);
-            } catch (IOException ex) {
-                Logger.getLogger(SqlRepository.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
+            } catch (IOException | SQLException ex) {
                 Logger.getLogger(SqlRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
         });

@@ -140,6 +140,7 @@ public class UploadMoviesPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnUploadMoviesActionPerformed
 
     private void btnDeleteMoviesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteMoviesActionPerformed
+        lblInfo.setText("");
         try {
             repository.deleteData();
             FileUtils.DeleteFilesInDirectory(DIR,EXT);

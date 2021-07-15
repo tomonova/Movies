@@ -1,278 +1,344 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <movieArchive>
     <movies>
-        <movie idMovie="560">
+        <movie idMovie="104">
             <title>Cruella</title>
-            <publishedDate>2021-07-12</publishedDate>
+            <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2021</releaseYear>
             <discription>U želji da postane slavna dizajnerica Cruella stiže u London. Njen osjećaj za modu primjećuje barunica Von Hellman, inače modna legenda. Ali njihov odnos pokreće niz događaja i otkrića koja će dovesti do toga da Cruella oslobodi svoju opaku stranu i postane osvetoljubiva Zlica od Opaka. 
 
 &lt;b&gt;„Film Cruella sadrži nekoliko scena s trepćućim svjetlima koje mogu utjecati na one koju su osjetljivi na fotoosjetljivu epilepsiju ili imaju druge fotoosjetljivosti”.&lt;/b&gt;
 </discription>
             <originalTitle>Cruella</originalTitle>
-            <picturePath>assets\36296f9e-24db-4804-9e75-3079c03a7d1a.jpg</picturePath>
+            <picturePath>assets\9b3f3905-c3b3-4c20-b78a-9064169cf3f6.jpg</picturePath>
             <genre idGenre="0">
                 <genre>komedija, akcija</genre>
             </genre>
             <rating>12</rating>
             <length>133</length>
         </movie>
-        <movie idMovie="561">
-            <title>Profil</title>
-            <publishedDate>2021-07-12</publishedDate>
-            <releaseYear>2021</releaseYear>
-            <discription>Britanska novinarka na tajnom zadatku infiltrira se u regrutacijski kanal Islamske Države putem kojeg se radikalizira i regrutira veliki broj žena iz cijele Europe. Održava svakodnevni kontakt s jednim od regrutera Islamske Države. Iako se dobro pripremila i poznaje sve taktike i procedure regrutiranja i radikalizacije, kroz svakodnevnu komunikaciju, sve joj je teže razlikovati što je istina, a što samo taktika. Cilj regrutera je navesti mlade i naivne djevojke da se zaljube u njega i pobjegnu iz matične zemlje. Toliko su uspješni da i iskusnu novinarku stavljaju pred ozbiljan izazov.</discription>
-            <originalTitle>Profile</originalTitle>
-            <picturePath>assets\2712303d-de08-45eb-8b75-835458e08982.jpg</picturePath>
+        <movie idMovie="105">
+            <title>Black Widow</title>
+            <publishedDate>2021-07-15</publishedDate>
+            <releaseYear>2020</releaseYear>
+            <discription>Priča je svojevrsni prequel koji nam razotkriva misteriozni lik Natashe Romanoff, kao i njezinu prošlost i obuku u elitnom KGB-ovom programu. Kao Black Widow, Natasha se suočava s mračnim dijelovima svoje smrtnosti kada se pojavi opasna zavjera povezana s njezinim prijašnjim životom. Potaknuta silom koja se neće zaustaviti, Black Widow se mora suočiti s prošlošću i prekinuti odnose koji su postojali prije nego što je postala Osvetnica.
+</discription>
+            <originalTitle>Black Widow</originalTitle>
+            <picturePath>assets\44dd9085-963c-420a-89b7-3c579d8a948b.jpg</picturePath>
             <genre idGenre="0">
-                <genre>triler</genre>
+                <genre>akcija, avantura, SF</genre>
             </genre>
-            <rating>15</rating>
-            <length>106</length>
+            <rating>12</rating>
+            <length>133</length>
         </movie>
-        <movie idMovie="563">
+        <movie idMovie="106">
             <title>Luka - sink</title>
-            <publishedDate>2021-07-12</publishedDate>
+            <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2021</releaseYear>
             <discription>Mladi dečko Luka doživljava nezaboravno ljeto na talijanskoj rivijeri ispunjeno hrpom sladoleda, ukusne mediteranske hrane i beskrajnom vožnjom skutera uz more. Luka dijeli ove pustolovine sa svojim novootkrivenim najboljim prijateljem, ali njihovoj beskrajnoj zabavi prijeti duboko čuvana tajna: radi se zapravo o pravim morskim čudovištima iz drugog svijeta, iz dubine oceana. 
 </discription>
             <originalTitle>Luca</originalTitle>
-            <picturePath>assets\32ffbb82-1f40-4d48-9702-f8da1d8b7d1d.jpg</picturePath>
+            <picturePath>assets\9f911e0a-2895-404e-8c7e-0f471fc2a902.jpg</picturePath>
             <genre idGenre="0">
                 <genre>animirani</genre>
             </genre>
             <rating>0</rating>
             <length>95</length>
         </movie>
-        <movie idMovie="564">
+        <movie idMovie="107">
+            <title>Ainbo: Dobri duh Amazone - sink</title>
+            <publishedDate>2021-07-17</publishedDate>
+            <releaseYear>2021</releaseYear>
+            <discription>Ainbo je priča o djevojčici koja se rodila i odrasla u najdubljoj džungli Amazone u selu Colonia. Jednog dana otkrije da je njezina zemlja ugrožena i shvati da na svijetu postoje i drugi ljudi, osim njezinih. Koristeći pomoć svojih duhovnih vodiča, kreće na put tražeći pomoć od najmoćnije Majke Duha Amazone, Kornjače "Motelo Mama". Vođena njezinim savjetima, Ainbo je odlučna spasiti svoj raj od pohlepne i prekomjerne sječe stabala te ilegalnog iskopavanja i spasiti svoje ljude prije nego što bude prekasno. 
+</discription>
+            <originalTitle>Ainbo</originalTitle>
+            <picturePath>assets\3dbed903-f6af-4315-9217-9b34659cf0b3.jpg</picturePath>
+            <genre idGenre="0">
+                <genre>animirani</genre>
+            </genre>
+            <rating>0</rating>
+            <length>84</length>
+        </movie>
+        <movie idMovie="108">
             <title>Pročišćenje: Zauvijek</title>
-            <publishedDate>2021-07-12</publishedDate>
+            <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2021</releaseYear>
             <discription>Pročišćenje: Zauvijek je peti i zadnji nastavak u serijalu Pročišćenje te je direktan nastavak na Pročišćenje: Izborna godina iz 2016. godine. 
 Meksički par bježi od kartela te se smješta na ranč u Teksasu gdje se nađu na udaru grupe koja i dalje nezakonito provodi Pročišćenje.
 </discription>
             <originalTitle>The Forever Purge</originalTitle>
-            <picturePath>assets\ab7931f5-43ee-45af-9014-433e56808430.jpg</picturePath>
+            <picturePath>assets\bb38ec24-99aa-432e-9623-4bd794b7139c.jpg</picturePath>
             <genre idGenre="0">
                 <genre>horor, akcija</genre>
             </genre>
             <rating>15</rating>
             <length>103</length>
         </movie>
-        <movie idMovie="565">
+        <movie idMovie="109">
             <title>Mjesto tišine 2</title>
-            <publishedDate>2021-07-12</publishedDate>
+            <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2021</releaseYear>
-            <discription>Mjesto tišine 2... film vrlo glupog naziva</discription>
+            <discription>Mjesto tišine 2 se nastavlja na kraj prvog dijela. Nakon što im je uništen siguran dom, Evelyn (Emily Blunt) i njezino troje djece kreću dalje u nepoznati svijet, u kojem čak i najmanji zvuk znači smrt. Pokušavaju pronaći druge preživjele i proširiti svoja nova saznanja o tome kako ubiti ta stvorenja.
+</discription>
             <originalTitle>A Quiet Place: Part II</originalTitle>
-            <picturePath>assets\544c4e6b-7a80-4178-82b1-bed5ec46084d.jpg</picturePath>
+            <picturePath>assets\f6be01d7-2a31-4391-9af0-13bc388eaaaa.jpg</picturePath>
             <genre idGenre="0">
                 <genre>horor, triler</genre>
             </genre>
             <rating>12</rating>
             <length>97</length>
         </movie>
-        <movie idMovie="566">
+        <movie idMovie="110">
             <title>Croods: Novo doba - sink</title>
-            <publishedDate>2021-07-12</publishedDate>
+            <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2020</releaseYear>
-            <discription>mlatni ga toljagom</discription>
+            <discription>Nakon sedam godina omiljena prahistorijska obitelj, Croods, se vraća na velika platna. Do sad su se susreli s mnogobrojnim nedaćama i opasnostima, ali na ono što ih čeka nikako se nisu mogli pripremiti. Naime srest će drugu obitelj koja je puno naprednija od njih. 
+Animiranu avanturu režirao je Joel Crafword koji je i sam glumio u mnogim animiranim filmovima studija DreamWorks, a producent je Mark Swift.
+
+Croodsi traže novo mjesto za život te putuju svijetom u potrazi za sigurnijim mjestom za svoj dom. U svojoj potrazi nailaze na idilično mjesto okruženo zidinama i s jako puno hrane. No tamo nailaze i na novu, puno napredniju obitelj, koja ih se želi riješiti što prije.
+Nova obitelj je daleko razvijenija od Croodsa, žive u kući na drvetu, znaju uzgajati hranu, imaju WC, lift i mnoge druge izume koje Croodi nisu nikada vidjeli. 
+No neočekivani obrat natjerat će obje obitelji da surađuju i krenu na pustolovinu života s druge strane zidina. Na tom putu će shvatiti da ih ipak veže puno stvari te da mogu premostiti razlike koje ih razdvajaju.</discription>
             <originalTitle>The Croods: A New Age</originalTitle>
-            <picturePath>assets\995351c6-d185-4ba9-8e09-258ad1dc5e67.jpg</picturePath>
+            <picturePath>assets\4f87d7ac-2f91-4e92-84c5-a1b0992d03b7.jpg</picturePath>
             <genre idGenre="0">
                 <genre>animirani</genre>
             </genre>
             <rating>0</rating>
             <length>95</length>
         </movie>
-        <movie idMovie="567">
+        <movie idMovie="111">
+            <title>Space Jam: Nova legenda - titl</title>
+            <publishedDate>2021-07-15</publishedDate>
+            <releaseYear>2021</releaseYear>
+            <discription>&lt;div style="text-align: justify;"&gt;Ovo transformacijsko putovanje otkriva koliko će daleko neki roditelji ići kako bi se povezali sa svojom djecom. LeBron i njegov sin Dom zarobljeni su u digitalnom prostoru i LeBron ih mora odvesti kući na sigurno,  vodeći  sa sobom i Bugsa, Lolu i cijelu bandu notorno nediscipliniranih Looneyja Tunesa. U filmu se pojavljuju i mnoge profesionalne košarkaške zvijezde u ulogama u kojima ih do sada niste mogli vidjeti. &lt;/div&gt;
+</discription>
+            <originalTitle>Space Jam: A New Legacy</originalTitle>
+            <picturePath>assets\b21438e4-e861-4807-8b1c-5b323132e8d0.jpg</picturePath>
+            <genre idGenre="0">
+                <genre>igrano - animirana avantura</genre>
+            </genre>
+            <rating>0</rating>
+            <length>117</length>
+        </movie>
+        <movie idMovie="112">
             <title>Velika bijela psina</title>
-            <publishedDate>2021-07-12</publishedDate>
+            <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2021</releaseYear>
             <discription>Zabavan let do udaljenog atola pretvara se u noćnu moru za pet putnika kada im se hidroavion uništi u čudnoj nesreći i kada se nađu zarobljeni na splavi, 100 milja od obale dok morski psi vrebaju ispod površine.</discription>
             <originalTitle>Great White</originalTitle>
-            <picturePath>assets\d3abf7a6-db50-41de-ad63-5a0a56aa48a1.jpg</picturePath>
+            <picturePath>assets\c9d9d345-9d01-4189-9eb9-8baa9b176c22.jpg</picturePath>
             <genre idGenre="0">
                 <genre>horor</genre>
             </genre>
             <rating>15</rating>
             <length>91</length>
         </movie>
-        <movie idMovie="568">
-            <title>Space Jam: Nova legenda - titl</title>
-            <publishedDate>2021-07-14</publishedDate>
-            <releaseYear>2021</releaseYear>
-            <discription>&lt;div style="text-align: justify;"&gt;Ovo transformacijsko putovanje otkriva koliko će daleko neki roditelji ići kako bi se povezali sa svojom djecom. LeBron i njegov sin Dom zarobljeni su u digitalnom prostoru i LeBron ih mora odvesti kući na sigurno,  vodeći  sa sobom i Bugsa, Lolu i cijelu bandu notorno nediscipliniranih Looneyja Tunesa. U filmu se pojavljuju i mnoge profesionalne košarkaške zvijezde u ulogama u kojima ih do sada niste mogli vidjeti. &lt;/div&gt;
-</discription>
-            <originalTitle>Space Jam: A New Legacy</originalTitle>
-            <picturePath>assets\1c327878-9fcc-45c7-8003-fabf8704f1d4.jpg</picturePath>
-            <genre idGenre="0">
-                <genre>igrano - animirana avantura</genre>
-            </genre>
-            <rating>0</rating>
-            <length>117</length>
-        </movie>
-        <movie idMovie="569">
+        <movie idMovie="113">
             <title>Paulovo posljednje putovanje</title>
-            <publishedDate>2021-07-12</publishedDate>
+            <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2020</releaseYear>
             <discription>U bliskoj budućnosti ekološkog pustošenja, tajanstveni Crveni mjesec, pretjerano iskorištavan zbog svoje energije, naglo mijenja kurs i kreće ravno na Zemlju. Paul W.R., jedini astronaut sposoban spasiti čovječanstvo, nestaje prije početka svoje misije. Paul je naime otkrio tajnu Crvenog mjeseca i zašto ga se ne smije uništiti ... Nemilosrdno lovljen, Paul nailazi na Elmu, tinejdžericu eksplozivne naravi, koji ga slijedi u potrazi za istinom.
 </discription>
             <originalTitle>The Last Journey of Paul W. R.</originalTitle>
-            <picturePath>assets\80cd72af-7a97-4a78-a08c-f8d11d21debf.jpg</picturePath>
+            <picturePath>assets\35f3c925-ab3e-4342-8eec-fa9c8d4633f8.jpg</picturePath>
             <genre idGenre="0">
                 <genre>SF, avantura</genre>
             </genre>
             <rating>12</rating>
             <length>87</length>
         </movie>
-        <movie idMovie="570">
+        <movie idMovie="114">
             <title>Čuvaj me s leđa 2</title>
-            <publishedDate>2021-07-12</publishedDate>
+            <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2021</releaseYear>
             <discription>Drugi dio akcijske komedije nastavlja se četiri godine nakon događaja iz prvog dijela. Nakon što su plaćeni ubojica Darius Kincaid (Samuel L. Jackson) i tjelohranitelj Michael Bryce (Ryan Reynolds), koji su najveći protivnici, morali surađivati, tjelohranitelj sada mora napraviti prisilnu pauzu zbog stresa i noćnih mora. Kad se napokon navikne na ideju da više neće biti tjelohranitelj i koristiti oružje, prije atentata ga spašava supruga ubojice Sonia Kincaid (Salma Hayek) koja ga je tražila kako bi joj pomogao spasiti njezina supruga. Budući da Bryceu nije dopušteno koristiti vatreno oružje ili bilo koje drugo oružje, morat će spasiti Dariusa svojom duhovitošću i inteligencijom.</discription>
             <originalTitle>Hitman’s Wife’s Bodyguard</originalTitle>
-            <picturePath>assets\f8afe402-abd5-4a4c-8563-5f01fcc250cf.jpg</picturePath>
+            <picturePath>assets\37427a9c-77f3-4d06-88f3-61da53c4c710.jpg</picturePath>
             <genre idGenre="0">
                 <genre>akcija, komedija</genre>
             </genre>
             <rating>15</rating>
             <length>116</length>
         </movie>
-        <movie idMovie="571">
+        <movie idMovie="115">
             <title>Brzi i žestoki 9</title>
-            <publishedDate>2021-07-12</publishedDate>
+            <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2021</releaseYear>
             <discription>Dom Toretto (Dom) mirno živi sa svojom ženom Letty (Michelle Rodrigez) i sinom, malim Brianom, ali je svjestan da opasnost vreba. Ovog puta, opasnost će natjerati Doma da se suoči sa svojom prošlosti ako želi spasiti najbliže. Dom još jednom mora okupiti Brze i žestoke kako bi se obranili od nove opasnosti u obliku profesionalnog ubojice Jacoba (John Cena) koji je ujedno i Domov brat. Napeta akcijska avantura odvija se od Londona preko Središnje Amerike do Edinburgha. </discription>
             <originalTitle>F9</originalTitle>
-            <picturePath>assets\8d3922ce-b78d-49b5-ad8c-e567922402c3.jpg</picturePath>
+            <picturePath>assets\5e30101b-c8c0-4179-bcdf-e5f6338e1c26.jpg</picturePath>
             <genre idGenre="0">
                 <genre>akcija, triler</genre>
             </genre>
             <rating>12</rating>
             <length>142</length>
         </movie>
-        <movie idMovie="572">
-            <title>Zora</title>
-            <publishedDate>2021-07-12</publishedDate>
-            <releaseYear>2021</releaseYear>
-            <discription>Matijina i Ikina obitelj nepovratno je oštećena tragedijom koja im se nedavno dogodila i podijeljena je oko toga treba li ostati u dolini ili otići, kako redom odlaze mještani zabrinuti nadirućim političkim ekstremizmom koji ih dijeli na odabrane i nepoželjne. Dok traje Matijin put od potpunog gubitka vjere do pronalaženja pravog sebe, zora koja obasjava dolinu otkriva da su suočavanje i borba jedino oruđe protiv traume i zla.</discription>
-            <originalTitle>Zora</originalTitle>
-            <picturePath>assets\6f201bc5-d7f1-4e69-b2eb-d1f544ab3ae3.jpg</picturePath>
-            <genre idGenre="0">
-                <genre>drama</genre>
-            </genre>
-            <rating>15</rating>
-            <length>126</length>
-        </movie>
-        <movie idMovie="573">
+        <movie idMovie="116">
             <title>Space Jam: Nova legenda - sink</title>
-            <publishedDate>2021-07-14</publishedDate>
+            <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2021</releaseYear>
             <discription>&lt;div style="text-align: justify;"&gt;Ovo transformacijsko putovanje otkriva koliko će daleko neki roditelji ići kako bi se povezali sa svojom djecom. LeBron i njegov sin Dom zarobljeni su u digitalnom prostoru i LeBron ih mora odvesti kući na sigurno,  vodeći  sa sobom i Bugsa, Lolu i cijelu bandu notorno nediscipliniranih Looneyja Tunesa. U filmu se pojavljuju i mnoge profesionalne košarkaške zvijezde u ulogama u kojima ih do sada niste mogli vidjeti. &lt;/div&gt;
 </discription>
             <originalTitle>Space Jam: A New Legacy</originalTitle>
-            <picturePath>assets\a3cfd3ae-3f97-4827-937a-9ca21fd6a40b.jpg</picturePath>
+            <picturePath>assets\eac03255-f5a8-429e-8ae7-a72fcfe02704.jpg</picturePath>
             <genre idGenre="0">
                 <genre>igrano - animirana avantura</genre>
             </genre>
             <rating>0</rating>
             <length>117</length>
         </movie>
-        <movie idMovie="574">
+        <movie idMovie="117">
             <title>Dani gnjeva</title>
-            <publishedDate>2021-07-12</publishedDate>
+            <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2021</releaseYear>
             <discription>Priča slijedi misterioznog H, zaštitara opakog pogleda koji radi za tvrtku koja prevozi novac u Los Angelesu i koji je odgovoran za prijevoz milijuna dolara po gradu. Tijekom pljačke vozila za koje su bili zaduženi, njegovi kolege ostaju iznenađeni preciznošću i vještinama koje će H pokazati i pitaju se tko je on zapravo i odakle je došao.
 Kao što to uvijek biva u Ritchijevim inače zanatski perfektnim akcijama, i ovaj film obiluje uvrnutim detaljima i epskim dijalozima koji će se prepričavati godinama.
 </discription>
             <originalTitle>Wrath of Man</originalTitle>
-            <picturePath>assets\b513590e-f542-4fc3-930a-90db3468b88e.jpg</picturePath>
+            <picturePath>assets\aaf70775-eb62-4b33-9344-3dc1c71fdcb6.jpg</picturePath>
             <genre idGenre="0">
                 <genre>akcija, triler</genre>
             </genre>
             <rating>15</rating>
             <length>118</length>
         </movie>
-        <movie idMovie="575">
+        <movie idMovie="118">
             <title>Dok nas smrt ne rastavi</title>
-            <publishedDate>2021-07-12</publishedDate>
+            <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2021</releaseYear>
             <discription>Emma (Megan Fox) se nalazi u ustajalom braku s Markom koji ju za 10. godišnjicu braka vodi do njihove osamljene kućice na jezeru na romantičnu večeru. Sljedećeg jutra nađe se vezana lisicama za Markovo mrtvo tijelo. Ne znajući tko je ubio Marka, zarobljena i izolirana u gluho doba zime, Emma saznaje da je ovo samo početak Markova uvrnutog plana. Kako bi preživjela mora se boriti protiv unajmljenih ubojica koji je žele ubiti.
 </discription>
             <originalTitle>Till Death</originalTitle>
-            <picturePath>assets\ea0fabfd-e078-4536-b84f-74f076b6458b.jpg</picturePath>
+            <picturePath>assets\e3c15540-a49d-420c-b150-55c3f61f9cc4.jpg</picturePath>
             <genre idGenre="0">
                 <genre>horor, triler</genre>
             </genre>
             <rating>15</rating>
             <length>90</length>
         </movie>
-        <movie idMovie="576">
+        <movie idMovie="119">
+            <title>Raya i posljednji zmaj - sink</title>
+            <publishedDate>2021-07-17</publishedDate>
+            <releaseYear>2021</releaseYear>
+            <discription>Davno, u čarobnom gradu Kumandra, ljudi i zmajevi živjeli su zajedno u slozi. Ali kada su zle sile poznate kao Druuni postale prijetnja za sve, zmajevi su žrtvujući sebe, spasili čovječanstvo. Sada, 500 godina kasnije, ta ista čudovišta su se vratila i na ratnici Rayi je da pronađe posljednjeg zmaja kako bi zauvijek zaustavili Druune. Međutim, tijekom svog putovanja Raya će naučiti da će joj za spas svijeta trebati ipak nešto više od zmajeve magije – neophodno je povjerenje i timski duh prije svega.
+</discription>
+            <originalTitle>Raya and the Last Dragon</originalTitle>
+            <picturePath>assets\f0742734-eafa-4f82-acb6-73b910b3c021.jpg</picturePath>
+            <genre idGenre="0">
+                <genre>animirani</genre>
+            </genre>
+            <rating>0</rating>
+            <length>115</length>
+        </movie>
+        <movie idMovie="120">
             <title>Prizivanja 3: Kriv je Sotona</title>
-            <publishedDate>2021-07-12</publishedDate>
+            <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2021</releaseYear>
             <discription>Prizivanja 3 otkrivaju zastrašujuću priču o teroru, ubojstvu i nepoznatom zlu koje je šokiralo čak i iskusne istražitelje paranormalnog Eda i Lorraine Warren. Jedan od njihovih senzacionalnijih slučajeva započinje borbom za dušu jednog mladića i odvodi ih daleko od svega što su ikad prije vidjeli, te će se prvi put u povijesti SAD-a optuženi za ubojstvo braniti opsjednutošću demonom. 
 Patrick Wilson i Vera Farmiga se vraćaju kao Ed i Lorraine Warren, ovog puta pod redateljskom palicom Michaela Chavesa.  
 </discription>
             <originalTitle>The Conjuring: The Devil Made Me Do It</originalTitle>
-            <picturePath>assets\6037c798-5fc2-4d8a-bdc5-347325e96657.jpg</picturePath>
+            <picturePath>assets\d2f38a08-e281-4783-978d-6ece9dd64134.jpg</picturePath>
             <genre idGenre="0">
                 <genre>horor, triler</genre>
             </genre>
             <rating>15</rating>
             <length>112</length>
         </movie>
-        <movie idMovie="577">
+        <movie idMovie="121">
+            <title>Čarobni prolaz - sink</title>
+            <publishedDate>2021-07-17</publishedDate>
+            <releaseYear>2020</releaseYear>
+            <discription>Uzbudljiva i živopisna avantura odvest će vašu obitelj u morske dubine, u krajolike očaravajuće ljepote, ali i velike opasnosti. Priča prati mladog dupina bujne mašte i njegovog najboljeg prijatelja koji neprestano otkrivaju nova mjesta za istraživanje - pronalaze brojne čarobne predmete, za koje nitko ne vjeruje da su zapravo stvarni. Jednog dana otkriju čarobni prolaz koji ih može pretvoriti u ono što žele postati. Nažalost, jegulje su otkrile njihovu tajnu i odlučili su prolaz iskoristiti za preuzimanje Ribljeg grada. Kako priča napreduje, dupini se moraju utrkivati s vremenom kako bi spasili svoj grad. S nizom ljupkih detalja, odličnim glumcima koji su sinkronizirali film i, dakako, savršenom najmodernijom tehnikom animacije, ovaj film pravo je uživanje za oči i osjećaje. 
+</discription>
+            <originalTitle>Magic Arch</originalTitle>
+            <picturePath>assets\f604cb2d-d2b8-40fb-ad6b-1584882366a4.jpg</picturePath>
+            <genre idGenre="0">
+                <genre>animirani</genre>
+            </genre>
+            <rating>0</rating>
+            <length>84</length>
+        </movie>
+        <movie idMovie="122">
+            <title>Tajne Azurne obale</title>
+            <publishedDate>2021-07-15</publishedDate>
+            <releaseYear>2021</releaseYear>
+            <discription>Kolovoz je 1970. Kao i svake godine, milijarder Claude Tranchant i njegova supruga Eliane borave u raskošnoj vili u Saint-Tropezu. Čini se da im ništa ne može pokvariti dobro raspoloženje. No, uvjeren da je žrtva pokušaja ubojstva, Tranchant poziva svog prijatelja Chiraca da angažira usluge najboljeg inspektora iz Pariza. No u srcu ljeta dostupan je samo inspektor Boulin, koji je nekoliko tjedana udaljen od mirovine. On će vrlo osebujnim metodama slijediti  trag uznemirivača.
+</discription>
+            <originalTitle>Do You Do You Saint-Tropez</originalTitle>
+            <picturePath>assets\b8ac48e9-2899-4e33-a977-25b5132b279c.jpg</picturePath>
+            <genre idGenre="0">
+                <genre>komedija</genre>
+            </genre>
+            <rating>12</rating>
+            <length>90</length>
+        </movie>
+        <movie idMovie="123">
             <title>Vukodlak među nama</title>
-            <publishedDate>2021-07-12</publishedDate>
+            <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2021</releaseYear>
             <discription>Šumski čuvar Finn Wheeler oduševljen je svojim novim zadatkom: privremeno živi u mjestu Beaverfield, malom, šumovitom kutku u kojem upoznaje njegove živopisne stanovnike. Ubrzo shvaća da trenutak u kojem je stigao ne može biti gori. Upravo se odvija velika snježna oluja koja će odsjeći njega i ostale stanovnike od vanjskog svijeta. Osim toga, misteriozno stvorenje zvjerski terorizira zajednicu. 
 Kako se broj tijela povećava, na Finnu je da preuzme ulogu junaka i otkrije što ili tko smanjuje broj stanovnika u Beaverfieldu.
 </discription>
             <originalTitle>Werewolves Within</originalTitle>
-            <picturePath>assets\3258e72a-2101-4158-b6c1-b256f2064550.jpg</picturePath>
+            <picturePath>assets\985a582b-c028-439a-8046-e263675cf729.jpg</picturePath>
             <genre idGenre="0">
                 <genre>horor, komedija</genre>
             </genre>
             <rating>15</rating>
             <length>97</length>
         </movie>
-        <movie idMovie="578">
+        <movie idMovie="124">
+            <title>Krstarenje džunglom</title>
+            <publishedDate>2021-07-28</publishedDate>
+            <releaseYear>2020</releaseYear>
+            <discription>Lily putuje iz Londona u džunglu Amazone gdje angažira Franka da je vozi u svom brodiću niz rijeku. Lily je odlučna otkriti drevno stablo s nevjerojatnim ljekovitim svojstvima koje imaju moć promijeniti budućnosti medicine. U svojoj potrazi, ovaj dvojac će se susresti s bezbroj opasnosti i natprirodnih sila u varljivoj ljepoti bujne prašume. 
+</discription>
+            <originalTitle>Jungle Cruise</originalTitle>
+            <picturePath>assets\09558de1-7ba0-40df-9e18-9a3112ce41ed.jpg</picturePath>
+            <genre idGenre="0">
+                <genre>akcija, avantura, komedija</genre>
+            </genre>
+            <rating>12</rating>
+            <length>127</length>
+        </movie>
+        <movie idMovie="125">
             <title>Ledena cesta</title>
-            <publishedDate>2021-07-12</publishedDate>
+            <publishedDate>2021-07-15</publishedDate>
             <releaseYear>2021</releaseYear>
             <discription>Nakon nesreće u udaljenom rudniku dijamanata na sjeveru Kanade, vozač kamiona na ledu pokreće nemoguću misiju spašavanja koja će ih voditi oceanima leda, sve u nadi kako će stići na vrijeme i spasiti zatrpane radnike.</discription>
             <originalTitle>Ice Road</originalTitle>
-            <picturePath>assets\7b360114-20ee-4635-af9f-bb487c0c7915.jpg</picturePath>
+            <picturePath>assets\f485cada-9eb9-4756-8c8d-432748aa0e75.jpg</picturePath>
             <genre idGenre="0">
                 <genre>akcija, triler</genre>
             </genre>
             <rating>12</rating>
             <length>108</length>
         </movie>
-        <movie idMovie="579">
-            <title>Testni</title>
-            <publishedDate>2021-10-10</publishedDate>
+        <movie idMovie="126">
+            <title>Tom i Jerry - sink</title>
+            <publishedDate>2021-07-17</publishedDate>
             <releaseYear>2021</releaseYear>
-            <discription>sadfsd</discription>
-            <originalTitle>Testis</originalTitle>
-            <picturePath>C:\Users\TomoNova\Desktop\šeks.jpg</picturePath>
+            <discription>Jedno od najomiljenijih rivalstava u povijesti ponovno oživljava kad se Jerry useli u najljepši hotel New Yorka uoči "vjenčanja stoljeća", prisiljavajući očajnog organizatora vjenčanja da hitno zatraži nužne mjere. Chloë Grace Moretz nalazi se u ulozi tek zaposlene Kayle, koja ima zadatak riješiti problem glodavaca u hotelu prije važnog događaja. Kayla za pomoć uzima Toma kako bi zajednički zaustavili nestašnog Jerryja.
+Slijedi naravno epska bitka mačke i miša koja prijeti uništenjem njezine karijere, vjenčanja, a moguće i samog hotela. No uskoro se pojavljuje još veći problem: zlobni i  ambiciozni djelatnik koji se urotio protiv njih troje.
+</discription>
+            <originalTitle>Tom &amp; Jerry</originalTitle>
+            <picturePath>assets\0de6b780-4677-433b-be20-1695165104b8.jpg</picturePath>
             <genre idGenre="0">
-                <genre>komedija, akcija</genre>
+                <genre>animacija, avantura, komedija</genre>
             </genre>
             <rating>0</rating>
-            <length>122</length>
+            <length>101</length>
         </movie>
-        <movie idMovie="580">
-            <title>Juha</title>
-            <publishedDate>2021-10-02</publishedDate>
-            <releaseYear>2021</releaseYear>
-            <discription>juha i rezanci</discription>
-            <originalTitle>Soup</originalTitle>
-            <picturePath>assets\09efb913-3cc2-4f7f-b1fb-e7c066e0ebee.jpg</picturePath>
+        <movie idMovie="127">
+            <title>test</title>
+            <publishedDate>2021-10-10</publishedDate>
+            <releaseYear>2019</releaseYear>
+            <discription>asdfasdf</discription>
+            <originalTitle>testis</originalTitle>
+            <picturePath>assets\e88d642f-47e9-4148-8675-d23c0de49aea.jpg</picturePath>
             <genre idGenre="0">
-                <genre>triler</genre>
+                <genre>horor, komedija</genre>
             </genre>
             <rating>0</rating>
             <length>123</length>

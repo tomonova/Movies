@@ -120,6 +120,8 @@ update status
 set Status = 0
 where Status=1;
 go
+exec DBInit;
+go
 create or alter   proc checkUser
 	@userName nvarchar(50),
 	@userPass nvarchar(100),
@@ -170,9 +172,10 @@ create or alter proc getMovies
 as
 select * from v_movies
 go
-create or alter proc CheckDbStatus
+create or ALTER   proc CheckDbStatus
+@checkOutput int output
 as
-select * from status
+select @checkOutput= Status from status
 go
 create or alter proc GetGenreID
 @Name nvarchar(200),
@@ -195,7 +198,7 @@ create or alter proc InsertMovie
 as
 insert into MOVIES(Title,PubDate,ReleaseYear,Description,OriginalTitle,GenreID,Picture,Rating,Length)
 values(@Title,@PubDate,@ReleaseYear,@Description,@OriginalTitle,@GenreID,@Picture,@Rating,@Length)
-select SCOPE_IDENTITY() as IDMovie
+select @outputInt=SCOPE_IDENTITY()
 go
 create or alter proc GetPersonID
 @Name nvarchar(100),
@@ -224,6 +227,18 @@ create or alter proc GetMovie
 as
 select * from v_movies
 where IDMovie=@movieId
+GO
+create or ALTER   proc InsertDirector
+@name nvarchar(100)
+as
+insert into PERSONS(Name,OccupationID)
+values(@name,0)
+GO
+create or ALTER proc InsertActor
+@name nvarchar(100)
+as
+insert into PERSONS(Name,OccupationID)
+values(@name,1)
 go
 create or alter proc GetMoviePersons
 @movieID int,

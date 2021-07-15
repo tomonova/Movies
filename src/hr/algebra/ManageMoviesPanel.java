@@ -626,6 +626,9 @@ public class ManageMoviesPanel extends javax.swing.JPanel  {
         if (parentWindow instanceof Frame) {
             parentFrame = (Frame) parentWindow;
         }
+        if (selectedMovie==null) {
+            selectedMovie=new Movie();
+        }
         PersonManagementDialog pmd = new PersonManagementDialog(parentFrame, true, selectedMovie, Occupation.GLUMAC);
         pmd.addWindowListener(new WindowAdapter() {
             public void windowClosed(WindowEvent e) {
@@ -801,7 +804,9 @@ public class ManageMoviesPanel extends javax.swing.JPanel  {
         }
         tfTitle.setText(movie.getTitle());
         tfDescription.setText(movie.getDescription());
-        tfPubDate.setText(movie.getPubDate().format(Movie.DATE_FORMATTER));
+        if (movie.getPubDate()!=null) {
+            tfPubDate.setText(movie.getPubDate().format(Movie.DATE_FORMATTER));
+        }
         tfOrigTitle.setText(movie.getOriginalTitle());
         cbGenre.setSelectedItem(movie.getGenre());
         cbGenre.repaint();
